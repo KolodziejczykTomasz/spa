@@ -1,11 +1,11 @@
 import React from "react"
-import Header from '../components/header'
+import Navigation from '../components/navigation'
 import GlobalStyle from "../assets/styles/globalStyles"
 
 const MainLayout = ({ children }) => (
   <>
     <GlobalStyle />  
-    <Header />
+    <Navigation />
     {children}
   </>
 )
