@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -14,13 +14,13 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 80px 65px 0;
-    font-family: 'Montserrat';    
+    font-family: 'Roboto';    
   }
 
   button {
     padding: 0;
     cursor: pointer;
-    font-family: 'Montserrat';
+    font-family: 'Roboto';
   }
 
   ul {
@@ -29,4 +29,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-export default GlobalStyle;
+export default GlobalStyle
