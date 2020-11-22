@@ -1,8 +1,11 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
+
+
   html {
-    box-sizing: border-box;    
+    box-sizing: border-box;
+    font-family: "Lovelo";        
   }
 
   *,
@@ -13,15 +16,14 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    padding: 80px 65px 0;
-    font-family: 'Roboto';    
+    padding: 80px 65px 0;   
+      
   }
 
   button {
     padding: 0;
-    cursor: pointer;
-    font-family: 'Roboto';
-  }
+    cursor: pointer;   
+      }
 
   ul {
     padding: 0;

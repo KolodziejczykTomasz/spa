@@ -12,7 +12,9 @@ const NavWrapper = styled.div`
   min-height: 90px;
   max-width: 1920px;
   border-bottom: 2px solid #f7f7f7;
-  margin-bottom: 50px;  
+  margin-bottom: 50px;
+  background-color: #474749;
+  font-family: "Lovelo";
 `
 
 const NavMain = styled.div`
@@ -20,12 +22,12 @@ const NavMain = styled.div`
   margin: 0 auto;
   align-items: end;
   max-width: 1250px;
-  height: 90px;  
+  height: 90px;
 `
 
 const NavButton = styled(Link)`
   padding: 30px 30px 25px 30px;
-  color: black;
+  color: white;
   font-size: 15px;
   font-weight: 400;
   text-decoration: none;
@@ -36,6 +38,7 @@ const NavButton = styled(Link)`
   transition: 0.3s;
   position: relative;
   overflow: hidden;
+  font-family: "Lovelo";
   :after {
     position: absolute;
     transition: 0.3s;
@@ -47,7 +50,7 @@ const NavButton = styled(Link)`
     background: orangered;
   }
   :hover {
-    color: orangered;
+    color: white;
   }
   :hover:after {
     width: 100%;
@@ -58,14 +61,15 @@ const NavButton = styled(Link)`
   }
 `
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled(Link)`
   display: flex;
-  width: 120px;
+  width: 236px;
   height: 100%;
   justify-content: center;
   align-items: center;
   border: 3px dotted #f7f7f7;
   border-radius: 10px;
+  text-decoration: none;
 `
 
 class Navigation extends Component {
@@ -73,7 +77,7 @@ class Navigation extends Component {
     return (
       <NavWrapper>
         <NavMain>
-          <LogoWrapper>
+          <LogoWrapper to="/">
             <span>LOGO</span>
           </LogoWrapper>
           <NavButton to="/about">Firma</NavButton>
