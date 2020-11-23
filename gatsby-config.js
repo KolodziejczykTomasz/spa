@@ -16,11 +16,18 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "fonts",
+        path: `${__dirname}/src/fonts/`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
-          families: ["Lovelo"],
-          urls: ["src/static/fonts/fonts.css"],
+          families: ["Lovelo Black"],
+          urls: ["/src/fonts.css"],
         },
       },
     },

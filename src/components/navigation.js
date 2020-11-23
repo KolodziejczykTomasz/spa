@@ -13,8 +13,7 @@ const NavWrapper = styled.div`
   max-width: 1920px;
   border-bottom: 2px solid #f7f7f7;
   margin-bottom: 50px;
-  background-color: #474749;
-  font-family: "Lovelo";
+  background-color: rgba(25, 25, 25, 0.5);
 `
 
 const NavMain = styled.div`
@@ -37,8 +36,7 @@ const NavButton = styled(Link)`
   border: 3px dotted transparent;
   transition: 0.3s;
   position: relative;
-  overflow: hidden;
-  font-family: "Lovelo";
+  overflow: hidden;  
   :after {
     position: absolute;
     transition: 0.3s;

@@ -1,11 +1,12 @@
 import { createGlobalStyle } from "styled-components"
 
+import '../../fonts/fonts.css';
+
 const GlobalStyle = createGlobalStyle`
 
 
   html {
-    box-sizing: border-box;
-    font-family: "Lovelo";        
+    box-sizing: border-box;          
   }
 
   *,
@@ -16,8 +17,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    padding: 80px 65px 0;   
-      
+    padding: 80px 65px 0;
+    font-family: 'Lovelo Black'; 
   }
 
   button {
