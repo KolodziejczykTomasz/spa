@@ -13,7 +13,7 @@ const NavWrapper = styled.div`
   max-width: 1920px;
   border-bottom: 2px solid #f7f7f7;
   margin-bottom: 50px;
-  background-color: rgba(25, 25, 25, 0.5);
+  background-color: transparent;
 `
 
 const NavMain = styled.div`
@@ -36,7 +36,7 @@ const NavButton = styled(Link)`
   border: 3px dotted transparent;
   transition: 0.3s;
   position: relative;
-  overflow: hidden;  
+  overflow: hidden;
   :after {
     position: absolute;
     transition: 0.3s;
