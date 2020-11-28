@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 const MainWrapper = styled.div`
+  display: grid;
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
@@ -16,6 +17,19 @@ const MainWrapperSectionContent = styled.div`
   padding: 50px 0;
   width: 832px;
   margin: 0 auto;
+`
+const ButtonWrapper = styled.button`
+  display: block;
+  margin: 50px auto;
+  width: auto;
+  height: 50px;
+  padding: 3px 20px;
+  background-color: #c23b37;
+  border: none;
+`
+const ButtonText = styled.span`
+  text-transform: uppercase;
+  color: white;
 `
 
 const MainWrapperProject = styled.div``
@@ -57,16 +71,38 @@ const MainWrapperOferContent = styled.div`
   padding: 50px 0 185px;
 `
 
-const MainWrapperPortfolio = styled.div`
+const MainWrapperPortfolioSection = styled.div`
+  width: 100%;
+`
+
+const MainWrapperPortfolioSectionContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: -75px auto 0 auto;
   height: 582px;
-  padding: 0 0 75px 0;  
+  width: 832px;
+  padding: 0 0 15px 0;
+`
+
+const MainWrapperPortfolioSectionContentItem = styled.div`
+  width: 260px;
+  height: 560px;
+  background-color: grey;
+`
+
+const Header = styled.div`
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 400px;
+  border-bottom: 3px solid #c23b37;
 `
 
 const Main = () => (
   <MainWrapper>
     <MainWrapperSection>
       <MainWrapperSectionContent>
-        <h1>Filozofia firmy</h1>
+        <Header>Filozofia firmy</Header>
         <div>
           Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
           systemy CMS (Content Management System - system zarządzania treścią).
@@ -74,6 +110,9 @@ const Main = () => (
           utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
           rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
         </div>
+        <ButtonWrapper>
+          <ButtonText>dowiedz się więcej</ButtonText>
+        </ButtonWrapper>
       </MainWrapperSectionContent>
     </MainWrapperSection>
     <MainWrapperProject>
@@ -91,7 +130,7 @@ const Main = () => (
     </MainWrapperProject>
     <MainWrapperOfer>
       <MainWrapperOferContent>
-        <h1>Nasza oferta</h1>
+        <Header>Nasza oferta</Header>
         <div>
           Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
           systemy CMS (Content Management System - system zarządzania treścią).
@@ -99,9 +138,24 @@ const Main = () => (
           utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
           rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
         </div>
+        <ButtonWrapper>
+          <ButtonText>Zobacz więcej</ButtonText>
+        </ButtonWrapper>
       </MainWrapperOferContent>
     </MainWrapperOfer>
-    <MainWrapperPortfolio>Portfolio</MainWrapperPortfolio>
+    <MainWrapperPortfolioSection>
+      <MainWrapperPortfolioSectionContent>
+        <MainWrapperPortfolioSectionContentItem>
+          Strony internetowe
+        </MainWrapperPortfolioSectionContentItem>
+        <MainWrapperPortfolioSectionContentItem>
+          Poczta elektroniczna
+        </MainWrapperPortfolioSectionContentItem>
+        <MainWrapperPortfolioSectionContentItem>
+          Rozwiązania dedykowane
+        </MainWrapperPortfolioSectionContentItem>
+      </MainWrapperPortfolioSectionContent>
+    </MainWrapperPortfolioSection>
   </MainWrapper>
 )
 

@@ -14,6 +14,7 @@ const NavWrapper = styled.div`
   border-bottom: 2px solid #f7f7f7;
   margin-bottom: 50px;
   background-color: transparent;
+  z-index: 9999;
 `
 
 const NavMain = styled.div`
@@ -45,7 +46,7 @@ const NavButton = styled(Link)`
     left: 0%;
     bottom: 0;
     height: 4px;
-    background: orangered;
+    background: #c23b37;
   }
   :hover {
     color: white;
@@ -55,7 +56,7 @@ const NavButton = styled(Link)`
     left: 0;
   }
   :focus {
-    border: 3px dotted red;
+    border: 3px dotted #c23b37;
   }
 `
 
