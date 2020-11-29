@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;   
-    font-family: 'Lovelo Black'; 
+    font-family: 'Lovelo Black', 'Lato'; 
     max-width: 1920px;
   }
 

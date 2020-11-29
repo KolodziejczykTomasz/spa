@@ -9,27 +9,103 @@ const MainWrapper = styled.div`
   margin: 0 auto;
 `
 const MainWrapperSection = styled.div`
-  height: 283px;
+  height: auto;
   width: 100%;
   margin: 0 auto;
 `
 const MainWrapperSectionContent = styled.div`
   padding: 50px 0;
-  width: 832px;
+  width: 80%;
   margin: 0 auto;
+  background: none;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 29px;
+  font-family: Lato, Arial, sans-serif;
 `
 const ButtonWrapper = styled.button`
   display: block;
-  margin: 50px auto;
+  margin: 50px auto 0 auto;
+  position: relative;
+  overflow: hidden;
   width: auto;
   height: 50px;
-  padding: 3px 20px;
-  background-color: #c23b37;
+  padding: 1px 20px;
   border: none;
-`
-const ButtonText = styled.span`
   text-transform: uppercase;
   color: white;
+  font-family: "Lovelo Black";
+  font-size: 15px;
+  background: none;
+  z-index: 1;
+  :after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #c23b37;
+    color: white;
+    font-family: "Lovelo Black";
+    font-size: 15px;
+    line-height: 40;
+    z-index: -1;
+    transition: top 0.3s ease-in-out;
+  }
+  :hover:after {
+    left: 0;
+    bottom: auto;
+    top: 90%;
+    color: black;
+  }
+  :focus {
+    border: 3px dotted #c23b37;
+  }
+`
+const ButtonWrapperContent = styled.button`
+  display: block;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  height: 50px;
+  padding: 1px 20px;
+  border: none;
+  font-family: "Lovelo Black";
+  font-size: 15px;
+  color: white;
+  text-transform: uppercase;
+  background-color: transparent;
+  z-index: 1;
+  :after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #c23b37;
+    color: black;
+    font-family: "Lovelo Black";
+    font-size: 15px;
+    line-height: 40;
+    z-index: -1;
+    transition: top 0.3s ease-in-out;
+  }
+  :hover {
+    color: black;
+  }
+  :hover:after {
+    left: 0;
+    bottom: auto;
+    top: 90%;
+  }
+  :focus {
+    border: 3px dotted #c23b37;
+  }
 `
 
 const MainWrapperProject = styled.div``
@@ -60,15 +136,20 @@ const MainWrapperProjectSectionRightBottom = styled.div`
 
 const MainWrapperOfer = styled.div`
   width: 100%;
-  height: 356px;
+  height: auto;
   background-color: black;
   color: white;
+  
 `
 
 const MainWrapperOferContent = styled.div`
-  width: 832px;
+  width: 80%;
   margin: 0 auto;
   padding: 50px 0 185px;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 29px;
+  font-family: Lato, sans-serif;
 `
 
 const MainWrapperPortfolioSection = styled.div`
@@ -80,22 +161,28 @@ const MainWrapperPortfolioSectionContent = styled.div`
   justify-content: space-between;
   margin: -75px auto 0 auto;
   height: 582px;
-  width: 832px;
+  width: 70%;
   padding: 0 0 15px 0;
 `
 
 const MainWrapperPortfolioSectionContentItem = styled.div`
-  width: 260px;
+  width: 310px;
   height: 560px;
   background-color: grey;
+  font-size: 35px;
+  line-height: 53px;
+  color: #fff;
 `
 
 const Header = styled.div`
   display: block;
   text-align: center;
-  margin: 0 auto;
-  width: 400px;
+  margin: 0 auto 25px auto;
+  width: 200px;
   border-bottom: 3px solid #c23b37;
+  font-size: 35px;
+  font-family: "Lovelo Black";
+  line-height: 42px;
 `
 
 const Main = () => (
@@ -103,16 +190,14 @@ const Main = () => (
     <MainWrapperSection>
       <MainWrapperSectionContent>
         <Header>Filozofia firmy</Header>
-        <div>
+        <div style={{ lineHeight: 1.2, fontSize: 25 }}>
           Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
           systemy CMS (Content Management System - system zarządzania treścią).
           Wdrożenia są utrzymywane na własnej infrastrukturze serwerowej co wraz
           utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
           rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
         </div>
-        <ButtonWrapper>
-          <ButtonText>dowiedz się więcej</ButtonText>
-        </ButtonWrapper>
+        <ButtonWrapperContent>dowiedz się więcej</ButtonWrapperContent>
       </MainWrapperSectionContent>
     </MainWrapperSection>
     <MainWrapperProject>
@@ -131,16 +216,14 @@ const Main = () => (
     <MainWrapperOfer>
       <MainWrapperOferContent>
         <Header>Nasza oferta</Header>
-        <div>
+        <div style={{ lineHeight: 1.6 }}>
           Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
           systemy CMS (Content Management System - system zarządzania treścią).
           Wdrożenia są utrzymywane na własnej infrastrukturze serwerowej co wraz
           utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
           rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
         </div>
-        <ButtonWrapper>
-          <ButtonText>Zobacz więcej</ButtonText>
-        </ButtonWrapper>
+        <ButtonWrapper>Zobacz więcej</ButtonWrapper>
       </MainWrapperOferContent>
     </MainWrapperOfer>
     <MainWrapperPortfolioSection>

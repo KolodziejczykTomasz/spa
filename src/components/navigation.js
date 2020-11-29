@@ -62,13 +62,15 @@ const NavButton = styled(Link)`
 
 const LogoWrapper = styled(Link)`
   display: flex;
-  width: 236px;
+  width: 360px;
   height: 100%;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   border: 3px dotted #f7f7f7;
   border-radius: 10px;
   text-decoration: none;
+  font-size: 25px;
+  color: white;
 `
 
 class Navigation extends Component {
@@ -77,7 +79,8 @@ class Navigation extends Component {
       <NavWrapper>
         <NavMain>
           <LogoWrapper to="/">
-            <span>LOGO</span>
+            <p style={{width: '100%'}}>extranet </p>
+            <p>internet creator</p>
           </LogoWrapper>
           <NavButton to="/about">Firma</NavButton>
           <NavButton to="/blog">Blog</NavButton>
