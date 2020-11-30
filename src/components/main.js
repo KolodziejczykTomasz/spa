@@ -13,16 +13,21 @@ const MainWrapperSection = styled.div`
   width: 100%;
   margin: 0 auto;
 `
+
 const MainWrapperSectionContent = styled.div`
   padding: 50px 0;
   width: 80%;
   margin: 0 auto;
   background: none;
+`
+const MainWrapperSectionContentText = styled.div`
   font-size: 25px;
   font-weight: 400;
   line-height: 29px;
-  font-family: Lato, Arial, sans-serif;
+  font-family: Lato, sans-serif;
+  color: #717171;
 `
+
 const ButtonWrapper = styled.button`
   display: block;
   margin: 50px auto 0 auto;
@@ -139,16 +144,15 @@ const MainWrapperOfer = styled.div`
   height: auto;
   background-color: black;
   color: white;
-  
 `
 
 const MainWrapperOferContent = styled.div`
   width: 80%;
   margin: 0 auto;
   padding: 50px 0 185px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 29px;
+  line-height: 23px;
   font-family: Lato, sans-serif;
 `
 
@@ -164,14 +168,55 @@ const MainWrapperPortfolioSectionContent = styled.div`
   width: 70%;
   padding: 0 0 15px 0;
 `
-
-const MainWrapperPortfolioSectionContentItem = styled.div`
-  width: 310px;
-  height: 560px;
-  background-color: grey;
+const MainWrapperPortfolioSectionContentItemHeader = styled.div`
   font-size: 35px;
   line-height: 53px;
-  color: #fff;
+  color: #000;
+  padding-left: 5px;
+  position: relative;
+  overflow: hidden;
+  :after {
+    position: absolute;
+    transition: 0.3s;
+    content: "";
+    width: 0;
+    left: 0%;
+    bottom: 0;
+    height: 4px;
+    background: #c23b37;
+  }
+  :hover {
+    color: #000;
+  }
+  :hover:after {
+    width: 100%;
+    left: 0;
+  }
+  :focus {
+    border: 3px dotted #c23b37;
+  }
+`
+const MainWrapperPortfolioSectionContentItemFooter = styled.div`
+  display: flex;
+  height: 80%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 5px;
+  position: relative;
+  opacity: 0;
+`
+const MainWrapperPortfolioSectionContentItem = styled.button`
+  width: 310px;
+  height: 560px;
+  border: 3px dotted transparent;
+  transition: 0.3s;
+  font-size: 35px;
+  font-family: "Lovelo Black";
+  line-height: 42px;
+  text-align: left;
+  :focus {
+    border: 3px dotted #c23b37;
+  }
 `
 
 const Header = styled.div`
@@ -190,13 +235,13 @@ const Main = () => (
     <MainWrapperSection>
       <MainWrapperSectionContent>
         <Header>Filozofia firmy</Header>
-        <div style={{ lineHeight: 1.2, fontSize: 25 }}>
+        <MainWrapperSectionContentText>
           Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
           systemy CMS (Content Management System - system zarządzania treścią).
           Wdrożenia są utrzymywane na własnej infrastrukturze serwerowej co wraz
           utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
           rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
-        </div>
+        </MainWrapperSectionContentText>
         <ButtonWrapperContent>dowiedz się więcej</ButtonWrapperContent>
       </MainWrapperSectionContent>
     </MainWrapperSection>
@@ -229,13 +274,28 @@ const Main = () => (
     <MainWrapperPortfolioSection>
       <MainWrapperPortfolioSectionContent>
         <MainWrapperPortfolioSectionContentItem>
-          Strony internetowe
+          <MainWrapperPortfolioSectionContentItemHeader>
+            Strony internetowe
+          </MainWrapperPortfolioSectionContentItemHeader>
+          <MainWrapperPortfolioSectionContentItemFooter>
+            Dowiedz się więcej
+          </MainWrapperPortfolioSectionContentItemFooter>
         </MainWrapperPortfolioSectionContentItem>
         <MainWrapperPortfolioSectionContentItem>
-          Poczta elektroniczna
+          <MainWrapperPortfolioSectionContentItemHeader>
+            Poczta elektroniczna
+          </MainWrapperPortfolioSectionContentItemHeader>
+          <MainWrapperPortfolioSectionContentItemFooter>
+            Dowiedz się więcej
+          </MainWrapperPortfolioSectionContentItemFooter>
         </MainWrapperPortfolioSectionContentItem>
         <MainWrapperPortfolioSectionContentItem>
-          Rozwiązania dedykowane
+          <MainWrapperPortfolioSectionContentItemHeader>
+            Rozwiązania dedykowane
+          </MainWrapperPortfolioSectionContentItemHeader>
+          <MainWrapperPortfolioSectionContentItemFooter>
+            Dowiedz się więcej
+          </MainWrapperPortfolioSectionContentItemFooter>
         </MainWrapperPortfolioSectionContentItem>
       </MainWrapperPortfolioSectionContent>
     </MainWrapperPortfolioSection>

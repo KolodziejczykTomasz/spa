@@ -38,7 +38,7 @@ const HeroWrapperHeaderSubtitle = styled.div`
 `
 const ButtonWrapper = styled.button`
   display: block;
-  margin: 70px auto 0 auto;
+  margin: 30px auto 0 auto;
   position: relative;
   overflow: hidden;
   z-index: 1;
