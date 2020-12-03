@@ -19,6 +19,7 @@ const NavWrapper = styled.div`
 
 const NavMain = styled.div`
   display: flex;
+  position: fixed;
   margin: 0 auto;
   align-items: end;
   max-width: 1250px;

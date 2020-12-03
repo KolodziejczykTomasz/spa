@@ -168,14 +168,51 @@ const MainWrapperPortfolioSectionContent = styled.div`
   width: 70%;
   padding: 0 0 15px 0;
 `
+const MainWrapperPortfolioSectionContentItemFooter = styled.div`
+  display: flex;
+  height: 80%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 5px;
+  position: relative;
+  font-size: 15px;
+  font-family: "Lovelo Black";
+  transition: 0.3s ease-in-out;
+  opacity: 0;
+  z-index: 1;
+`
+
 const MainWrapperPortfolioSectionContentItemHeader = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   font-size: 35px;
   line-height: 53px;
   color: #000;
   padding-left: 5px;
   position: relative;
   overflow: hidden;
-  :after {
+  transition: 0.3s ease-in-out;
+  :hover {
+    color: #000;
+  }
+`
+
+const MainWrapperPortfolioSectionContentItem = styled.button`
+  width: 310px;
+  height: 560px;
+  border: 3px dotted transparent;
+  transition: 0.3s;
+  font-size: 35px;
+  font-family: "Lovelo Black";
+  line-height: 42px;
+  text-align: left;
+  z-index: 9999;
+  transition: 0.3s ease-in-out;
+  :focus {
+    border: 3px dotted #c23b37;
+  }
+  ${MainWrapperPortfolioSectionContentItemHeader}:after {
     position: absolute;
     transition: 0.3s;
     content: "";
@@ -186,36 +223,13 @@ const MainWrapperPortfolioSectionContentItemHeader = styled.div`
     background: #c23b37;
   }
   :hover {
-    color: #000;
-  }
-  :hover:after {
-    width: 100%;
-    left: 0;
-  }
-  :focus {
-    border: 3px dotted #c23b37;
-  }
-`
-const MainWrapperPortfolioSectionContentItemFooter = styled.div`
-  display: flex;
-  height: 80%;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding-right: 5px;
-  position: relative;
-  opacity: 0;
-`
-const MainWrapperPortfolioSectionContentItem = styled.button`
-  width: 310px;
-  height: 560px;
-  border: 3px dotted transparent;
-  transition: 0.3s;
-  font-size: 35px;
-  font-family: "Lovelo Black";
-  line-height: 42px;
-  text-align: left;
-  :focus {
-    border: 3px dotted #c23b37;
+    ${MainWrapperPortfolioSectionContentItemFooter} {
+      opacity: 1;
+    }
+    ${MainWrapperPortfolioSectionContentItemHeader}:after {
+      width: 100%;
+      left: 0;
+    }
   }
 `
 

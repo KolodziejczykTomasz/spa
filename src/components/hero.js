@@ -8,8 +8,20 @@ const HeroWrapper = styled.div`
   width: 100%;
   height: 100vh;
   padding-top: 20px;
-  background-color: #717171;
+  object-fit: cover;
 `
+
+const PhotoHero = styled.img`
+  display: block;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  filter: grayscale(70%);
+`
+
 const HeroWrapperHeader = styled.div`
   display: flex;
   flex-direction: column;
@@ -65,6 +77,7 @@ const ButtonWrapper = styled.button`
     left: 0;
     bottom: auto;
     top: 90%;
+    filter: none;
   }
   :focus {
     border: 3px dotted #c23b37;
@@ -73,6 +86,10 @@ const ButtonWrapper = styled.button`
 
 const Hero = () => (
   <HeroWrapper>
+    <PhotoHero
+      src="/static/9535b4550f0ade3003a2250fb9cde298/hero.jpg"
+      alt="PhotoHero"
+    />
     <HeroWrapperHeader>
       <HeroWrapperHeaderTitle>Extranet inernet creator</HeroWrapperHeaderTitle>
       <HeroWrapperHeaderSubtitle>
