@@ -124,25 +124,25 @@ const MainWrapperProjectSection = styled.div`
 const MainWrapperProjectSectionLeft = styled.div`
   grid: column;
   height: 100%;
-  background-color: blue;
+  width: 60%;
 `
 const MainWrapperProjectSectionRight = styled.div`
   grid: row;
   grid-template-rows: 0.5fr 0.5fr;
 `
 const MainWrapperProjectSectionRightTop = styled.div`
-  background-color: green;
   height: 50%;
+  width: auto;
 `
 const MainWrapperProjectSectionRightBottom = styled.div`
-  background-color: brown;
   height: 50%;
+  width: auto;
 `
 
 const MainWrapperOfer = styled.div`
+  display: block;
   width: 100%;
-  height: auto;
-  background-color: black;
+  height: 450px;
   color: white;
 `
 
@@ -244,6 +244,33 @@ const Header = styled.div`
   line-height: 42px;
 `
 
+const PhotoOfert = styled.img`
+  display: block;
+  background-size: cover;
+  height: 450px;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+`
+
+const PhotoProject = styled.img`
+  display: block;
+  background-size: cover;
+  height: auto;
+  max-width: 60%;
+  position: absolute;
+  z-index: -1;
+`
+
+const PhotoProjectRight = styled.img`
+  display: flex;
+  background-size: cover;
+  height: auto;
+  width: auto;
+  position: absolute;
+  z-index: -1;
+`
+
 const Main = () => (
   <MainWrapper>
     <MainWrapperSection>
@@ -261,18 +288,33 @@ const Main = () => (
     </MainWrapperSection>
     <MainWrapperProject>
       <MainWrapperProjectSection>
-        <MainWrapperProjectSectionLeft>1</MainWrapperProjectSectionLeft>
+        <MainWrapperProjectSectionLeft>
+          <PhotoProject
+            src="/static/feb246ca85b9c74c757cf2b27be9d99b/project1.jpg"
+            alt="PhotoProject"
+          />
+        </MainWrapperProjectSectionLeft>
         <MainWrapperProjectSectionRight>
           <MainWrapperProjectSectionRightTop>
-            2a
+            <PhotoProjectRight
+              src="/static/5954f0afe325151352f5fd7c4fb1dd95/project2.jpg"
+              alt="PhotoProject"
+            />
           </MainWrapperProjectSectionRightTop>
           <MainWrapperProjectSectionRightBottom>
-            2b
+            <PhotoProjectRight
+              src="/static/30107d8152812bb34b294037a5cf5bf0/project3.jpg"
+              alt="PhotoProject"
+            />
           </MainWrapperProjectSectionRightBottom>
         </MainWrapperProjectSectionRight>
       </MainWrapperProjectSection>
     </MainWrapperProject>
     <MainWrapperOfer>
+      <PhotoOfert
+        src="/static/68a5f1526bb89e36f4d96c1e7f6299b9/bg_ofert.png"
+        alt="PhotoFooter"
+      />
       <MainWrapperOferContent>
         <Header>Nasza oferta</Header>
         <div style={{ lineHeight: 1.6 }}>

@@ -9,7 +9,7 @@ const NavWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 90px;
+  min-height: 109px;
   max-width: 1920px;
   border-bottom: 2px solid #f7f7f7;
   margin-bottom: 50px;
@@ -64,8 +64,9 @@ const NavButton = styled(Link)`
 const LogoWrapper = styled(Link)`
   display: flex;
   width: 360px;
-  height: 100%;
-  justify-content: left;
+  height: 98%;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   border: 3px dotted #f7f7f7;
   border-radius: 10px;
@@ -80,8 +81,8 @@ class Navigation extends Component {
       <NavWrapper>
         <NavMain>
           <LogoWrapper to="/">
-            <p style={{width: '100%'}}>extranet </p>
-            <p>internet creator</p>
+            <div>extranet </div>
+            <div>internet creator</div>
           </LogoWrapper>
           <NavButton to="/about">Firma</NavButton>
           <NavButton to="/blog">Blog</NavButton>

@@ -20,6 +20,7 @@ const PhotoHero = styled.img`
   width: 100%;
   position: absolute;
   filter: grayscale(70%);
+  opacity: 0.8;
 `
 
 const HeroWrapperHeader = styled.div`
@@ -77,10 +78,9 @@ const ButtonWrapper = styled.button`
     left: 0;
     bottom: auto;
     top: 90%;
-    filter: none;
   }
   :focus {
-    border: 3px dotted #c23b37;
+    border: 3px dotted #c23b37 !important;
   }
 `
 

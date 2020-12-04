@@ -9,7 +9,6 @@ const MainWrapperFooter = styled.div`
   padding: 0;
   margin: 0;
   color: #fff;
-  background-color: #000;
 `
 
 const MainWrapperFooterContentTop = styled.div`
@@ -81,8 +80,21 @@ const ButtonWrapper = styled.button`
   }
 `
 
+const PhotoFooter = styled.img`
+  display: block;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: absolute;  
+  z-index: -1;
+`
+
 const Footer = () => (
   <MainWrapperFooter>
+    <PhotoFooter
+      src="/static/e5da3622b145d562fe30cfeede88279f/bg_footer.png"
+      alt="PhotoFooter"
+    />
     <hr style={{ borderBottom: "1px solid #717171", paddingTop: "120px" }} />
     <MainWrapperFooterContentTop>
       <MainWrapperFooterContentItemFirst>
@@ -145,7 +157,7 @@ const Footer = () => (
     </MainWrapperFooterContentTop>
     <hr style={{ borderBottom: "1px solid #717171" }} />
     <MainWrapperFooterContentBottom>
-      <p style={{marginTop: 40}}>
+      <p style={{ marginTop: 40 }}>
         Wszystkie treści serwisu będące przedmiotem praw autorskich, o ile nie
         jest to stwierdzone inaczej, są dostępne na licencji Creative Commons
         Uznanie Autorstwa 4.0 Polska. Deklaracja Dostępności
