@@ -1,5 +1,6 @@
 import React from "react"
-
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components"
 
 const MainWrapper = styled.div`
@@ -271,7 +272,7 @@ const PhotoProjectRight = styled.img`
   z-index: -1;
 `
 
-const Main = () => (
+const Main = ({ data }) => (
   <MainWrapper>
     <MainWrapperSection>
       <MainWrapperSectionContent>
@@ -302,16 +303,13 @@ const Main = () => (
             />
           </MainWrapperProjectSectionRightTop>
           <MainWrapperProjectSectionRightBottom>
-            <PhotoProjectRight
-              src="/static/30107d8152812bb34b294037a5cf5bf0/project3.jpg"
-              alt="PhotoProject"
-            />
+         
           </MainWrapperProjectSectionRightBottom>
         </MainWrapperProjectSectionRight>
       </MainWrapperProjectSection>
     </MainWrapperProject>
     <MainWrapperOfer>
-      <PhotoOfert
+      <img
         src="/static/68a5f1526bb89e36f4d96c1e7f6299b9/bg_ofert.png"
         alt="PhotoFooter"
       />
@@ -358,4 +356,18 @@ const Main = () => (
   </MainWrapper>
 )
 
+export const query = graphql`
+  {
+    file(name: { eq: "project3" }) {
+      childImageSharp {
+        fluid(quality: 90) {
+          src
+          srcSet
+          sizes
+        }
+      }
+      publicURL
+    }
+  }
+`
 export default Main

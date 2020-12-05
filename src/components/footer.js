@@ -1,51 +1,72 @@
 import React from "react"
-
+import { StaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components"
 
-const MainWrapperFooter = styled.div`
-  display: block;
+const Wrapper = styled.div`
+  display: flex;
   width: 100%;
   height: 100vh;
-  padding: 0;
-  margin: 0;
-  color: #fff;
+  position: relative;
 `
 
-const MainWrapperFooterContentTop = styled.div`
+const WrapperLineTop = styled.div`
+  border-bottom: 1px solid #717171;
+  width: 100%;
+  height: 120px;
+  position: absolute;
+`
+
+const WrapperLineBottom = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin: -120px auto 0 auto;
-  height: auto;
-  width: 900px;
-  padding: 30px 0 15px 0;
+  align-self: flex-end;
+  border-top: 1px solid #717171;
+  width: 100%;
+  height: 120px;
+  position: absolute;
 `
 
-const MainWrapperFooterContentItemFirst = styled.div`
-  width: 260px;
+const PhotoFooter = styled(Img)`
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+`
+
+const WrapperFooter = styled.div`
+  display: block;
+  position: absolute;
+  color: #fff;
+  width: 80%;
+  height: 100%;
+  margin: 20px 10% 0 10%;
+`
+const WrapperFooterContentTop = styled.div`
+  display: grid;
+  grid-template-columns: 0.3fr 0.4fr 0.3fr;
+  margin-bottom: 20px;
+`
+const WrapperFooterContentItemFirst = styled.div`
   height: 560px;
 `
-const MainWrapperFooterContentItemSecond = styled.div`
-  width: 300px;
+const WrapperFooterContentItemSecond = styled.div`
   height: 560px;
 `
-const MainWrapperFooterContentItemThird = styled.div`
-  width: 400px;
+const WrapperFooterContentItemThird = styled.div`
   height: 560px;
 `
 
-const MainWrapperFooterContentBottom = styled.div`
-  width: 900px;
-  height: auto;
-  margin: 0 auto;
+const WrapperFooterContentBottom = styled.div`
+  margin-top: 100px;
 `
+
 const ButtonWrapper = styled.button`
   display: block;
-  margin: 50px auto 0 auto;
+  margin: 30px auto 0 auto;
   position: relative;
   overflow: hidden;
   width: auto;
-  height: 50px;
-  padding: 1px 20px;
+  padding: 5px 20px;
   border: none;
   text-transform: uppercase;
   color: white;
@@ -80,90 +101,100 @@ const ButtonWrapper = styled.button`
   }
 `
 
-const PhotoFooter = styled.img`
-  display: block;
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-  position: absolute;  
-  z-index: -1;
-`
-
 const Footer = () => (
-  <MainWrapperFooter>
-    <PhotoFooter
-      src="/static/e5da3622b145d562fe30cfeede88279f/bg_footer.png"
-      alt="PhotoFooter"
-    />
-    <hr style={{ borderBottom: "1px solid #717171", paddingTop: "120px" }} />
-    <MainWrapperFooterContentTop>
-      <MainWrapperFooterContentItemFirst>
-        <div>
-          <h1 style={{ fontSize: 20 }}>Dane firmy</h1>
-          <div style={{ marginTop: 75 }}>
-            <ul>
-              <li>ul. Wielki Rów 40B</li>
-              <li>87-100 Toruń</li>
-              <li>NIP: 879-118-34-25</li>
-              <li>REGON: 871179250</li>
-            </ul>
-          </div>
-          <ButtonWrapper>Więcej informacji</ButtonWrapper>
-        </div>
-      </MainWrapperFooterContentItemFirst>
-      <MainWrapperFooterContentItemSecond>
-        <div>
-          <h1 style={{ fontSize: 20 }}>Kontakt</h1>
-          <div style={{ marginTop: 75 }}>
-            <ul>
-              <li>e-mail: biuro@extranet.pl</li>
-            </ul>
-            <p>Dział handlowy:</p>
-            <ul>
-              <li>tel.: +48 733 533 521</li>
-            </ul>
-            <p>Dział administracyjny:</p>
-            <ul>
-              <li> tel.: +48 695 423 695</li>
-            </ul>
-            <p> Godziny pracy:</p>
-            <p>poniedziałek - piątek 8-16</p>
-          </div>
-          <ButtonWrapper>Kariera</ButtonWrapper>
-        </div>
-      </MainWrapperFooterContentItemSecond>
-      <MainWrapperFooterContentItemThird>
-        <div>
-          <h1 style={{ fontSize: 20 }}>Napisz do nas</h1>
-          <div style={{ marginTop: 75 }}>
-            Temat wiadomości *
-            <p style={{ fontSize: 15 }}>
-              Akceptuję treść Regulaminu Strony zawierający m.in. klauzulę
-              informacyjną dotyczącą przetwarzania danych osobowych.
-              Administrator Strony informuje, że dane osobowe z niniejszego
-              formularza będą przetwarzane w celu nawiązania kontaktu, nie
-              dłużej niż przez 7 dni od momentu ich pozyskania. Zbieramy
-              następujące dane osobowe: adres e-mail.
+  <StaticQuery
+    query={graphql`
+      query {
+        placeholderImage: file(relativePath: { eq: "bg_footer.png" }) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => (
+      <Wrapper>
+        <PhotoFooter
+          fluid={data.placeholderImage.childImageSharp.fluid}
+          alt=""
+        />
+        <WrapperLineTop />
+        <WrapperFooter>
+          <WrapperFooterContentTop>
+            <WrapperFooterContentItemFirst>
+              <div>
+                <h1 style={{ fontSize: 20, marginTop: 40 }}>Dane firmy</h1>
+                <div style={{ marginTop: 80 }}>
+                  <ul>
+                    <li>ul. Wielki Rów 40B</li>
+                    <li>87-100 Toruń</li>
+                    <li>NIP: 879-118-34-25</li>
+                    <li>REGON: 871179250</li>
+                  </ul>
+                </div>
+                <ButtonWrapper>Więcej informacji</ButtonWrapper>
+              </div>
+            </WrapperFooterContentItemFirst>
+            <WrapperFooterContentItemSecond>
+              <div>
+                <h1 style={{ fontSize: 20, marginTop: 40 }}>Kontakt</h1>
+                <div style={{ marginTop:80 }}>
+                  <ul>
+                    <li>e-mail: biuro@extranet.pl</li>
+                  </ul>
+                  <p>Dział handlowy:</p>
+                  <ul>
+                    <li>tel.: +48 733 533 521</li>
+                  </ul>
+                  <p>Dział administracyjny:</p>
+                  <ul>
+                    <li> tel.: +48 695 423 695</li>
+                  </ul>
+                  <p> Godziny pracy:</p>
+                  <p>poniedziałek - piątek 8-16</p>
+                </div>
+                <ButtonWrapper>Kariera</ButtonWrapper>
+              </div>
+            </WrapperFooterContentItemSecond>
+            <WrapperFooterContentItemThird>
+              <div>
+                <h1 style={{ fontSize: 20, marginTop: 40 }}>Napisz do nas</h1>
+                <div style={{ marginTop: 80 }}>
+                  Temat wiadomości *
+                  <p style={{ fontSize: 15 }}>
+                    Akceptuję treść Regulaminu Strony zawierający m.in. klauzulę
+                    informacyjną dotyczącą przetwarzania danych osobowych.
+                    Administrator Strony informuje, że dane osobowe z
+                    niniejszego formularza będą przetwarzane w celu nawiązania
+                    kontaktu, nie dłużej niż przez 7 dni od momentu ich
+                    pozyskania. Zbieramy następujące dane osobowe: adres e-mail.
+                  </p>
+                  <ButtonWrapper>Rozwiń</ButtonWrapper>
+                  <p style={{ fontSize: 15 }}>
+                    * Wyrażam zgodę na otrzymywanie wiadomości drogą
+                    elektroniczną
+                  </p>
+                  <ButtonWrapper>Rozwiń</ButtonWrapper>
+                </div>
+                <ButtonWrapper>Prześlij</ButtonWrapper>
+              </div>
+            </WrapperFooterContentItemThird>
+          </WrapperFooterContentTop>
+
+          <WrapperFooterContentBottom>
+            <p>
+              Wszystkie treści serwisu będące przedmiotem praw autorskich, o ile
+              nie jest to stwierdzone inaczej, są dostępne na licencji Creative
+              Commons Uznanie Autorstwa 4.0 Polska. Deklaracja Dostępności
             </p>
-            <ButtonWrapper>Rozwiń</ButtonWrapper>
-            <p style={{ fontSize: 15 }}>
-              * Wyrażam zgodę na otrzymywanie wiadomości drogą elektroniczną
-            </p>
-            <ButtonWrapper>Rozwiń</ButtonWrapper>
-          </div>
-          <ButtonWrapper>Prześlij</ButtonWrapper>
-        </div>
-      </MainWrapperFooterContentItemThird>
-    </MainWrapperFooterContentTop>
-    <hr style={{ borderBottom: "1px solid #717171" }} />
-    <MainWrapperFooterContentBottom>
-      <p style={{ marginTop: 40 }}>
-        Wszystkie treści serwisu będące przedmiotem praw autorskich, o ile nie
-        jest to stwierdzone inaczej, są dostępne na licencji Creative Commons
-        Uznanie Autorstwa 4.0 Polska. Deklaracja Dostępności
-      </p>
-    </MainWrapperFooterContentBottom>
-  </MainWrapperFooter>
+          </WrapperFooterContentBottom>
+        </WrapperFooter>
+        <WrapperLineBottom />
+      </Wrapper>
+    )}
+  />
 )
 
 export default Footer
