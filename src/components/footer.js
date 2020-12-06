@@ -39,12 +39,12 @@ const WrapperFooter = styled.div`
   color: #fff;
   width: 80%;
   height: 100%;
-  margin: 20px 10% 0 10%;
+  margin-left: 10%;
+  margin-right: 10%;
 `
 const WrapperFooterContentTop = styled.div`
   display: grid;
   grid-template-columns: 0.3fr 0.4fr 0.3fr;
-  margin-bottom: 20px;
 `
 const WrapperFooterContentItemFirst = styled.div`
   height: 560px;
@@ -57,7 +57,7 @@ const WrapperFooterContentItemThird = styled.div`
 `
 
 const WrapperFooterContentBottom = styled.div`
-  margin-top: 100px;
+  margin-top: 120px;
 `
 
 const ButtonWrapper = styled.button`
@@ -140,7 +140,7 @@ const Footer = () => (
             <WrapperFooterContentItemSecond>
               <div>
                 <h1 style={{ fontSize: 20, marginTop: 40 }}>Kontakt</h1>
-                <div style={{ marginTop:80 }}>
+                <div style={{ marginTop: 80 }}>
                   <ul>
                     <li>e-mail: biuro@extranet.pl</li>
                   </ul>
