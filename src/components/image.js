@@ -1,26 +1,33 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-
-const Image = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "hero.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
+const Image = ({ imgName, ...props }) => (
+  <StaticQuery
+    query={graphql`
+      {
+        allImageSharp {
+          edges {
+            node {
+              fluid {
+                originalName
+                src
+              }
+            }
           }
         }
       }
-    }
-  `)
-
-  if (!data?.placeholderImage?.childImageSharp?.fluid) {
-    return <div>Picture not found</div>
-  }
-
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-}
+    `}
+    render={data => {
+      const image = data.allImageSharp.edges.find(
+        edge => edge.node.fluid.originalName === imgName
+      )
+      if (!image) {
+        return <p style={{color: 'black'}}>Brak obrazka</p>
+      }
+      return <Img fluid={image.node.fluid} {...props} />
+    }}
+  />
+)
 
 export default Image

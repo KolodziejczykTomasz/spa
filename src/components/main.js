@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import Image from "../components/image"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
@@ -144,7 +144,7 @@ const MainWrapperOfer = styled.div`
   display: block;
   width: 100%;
   height: 450px;
-  color: white;
+  color: black;
 `
 
 const MainWrapperOferContent = styled.div`
@@ -245,13 +245,11 @@ const Header = styled.div`
   line-height: 42px;
 `
 
-const PhotoOfert = styled(Img)`
+const PhotoOfert = styled(Image)`
   display: block;
   background-size: cover;
   height: 450px;
   width: 100%;
-  position: absolute;
-  z-index: -1;
 `
 
 const PhotoProject = styled(Img)`
@@ -272,100 +270,83 @@ const PhotoProjectRight = styled(Img)`
   z-index: -1;
 `
 
-const Main = () => (
-  <StaticQuery
-    query={graphql`
-      {
-        allFile {
-          edges {
-            node {
-              relativePath
-              name
-            }
-          }
-        }
-      }
-    `}
-
-    
-    render={data => (    
-      <MainWrapper>
-        <MainWrapperSection>
-          <MainWrapperSectionContent>
-            <Header>Filozofia firmy</Header>
-            <MainWrapperSectionContentText>
-              Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych
-              o systemy CMS (Content Management System - system zarządzania
-              treścią). Wdrożenia są utrzymywane na własnej infrastrukturze
-              serwerowej co wraz utrzymywaniem poczty elektronicznej czy
-              opracowywaniu i wdrażaniu rozwiązań dedykowanych stanowi
-              kompleksową obsługę klienta.
-            </MainWrapperSectionContentText>
-            <ButtonWrapperContent>dowiedz się więcej</ButtonWrapperContent>
-          </MainWrapperSectionContent>
-        </MainWrapperSection>
-        <MainWrapperProject>
-          <MainWrapperProjectSection>
-            <MainWrapperProjectSectionLeft>
-              <PhotoProject name="project1.jpg" alt="PhotoProject" />
-            </MainWrapperProjectSectionLeft>
-            <MainWrapperProjectSectionRight>
-              <MainWrapperProjectSectionRightTop>
-                <PhotoProjectRight
-                  src="/static/5954f0afe325151352f5fd7c4fb1dd95/project2.jpg"
-                  alt="PhotoProject"
-                />
-              </MainWrapperProjectSectionRightTop>
-              <MainWrapperProjectSectionRightBottom></MainWrapperProjectSectionRightBottom>
-            </MainWrapperProjectSectionRight>
-          </MainWrapperProjectSection>
-        </MainWrapperProject>
-        <MainWrapperOfer>
-          <PhotoOfert name="bg_ofert.png" />
-          <MainWrapperOferContent>
-            <Header>Nasza oferta</Header>
-            <div style={{ lineHeight: 1.6 }}>
-              Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych
-              o systemy CMS (Content Management System - system zarządzania
-              treścią). Wdrożenia są utrzymywane na własnej infrastrukturze
-              serwerowej co wraz utrzymywaniem poczty elektronicznej czy
-              opracowywaniu i wdrażaniu rozwiązań dedykowanych stanowi
-              kompleksową obsługę klienta.
-            </div>
-            <ButtonWrapper>Zobacz więcej</ButtonWrapper>
-          </MainWrapperOferContent>
-        </MainWrapperOfer>
-        <MainWrapperPortfolioSection>
-          <MainWrapperPortfolioSectionContent>
-            <MainWrapperPortfolioSectionContentItem>
-              <MainWrapperPortfolioSectionContentItemHeader>
-                Strony internetowe
-              </MainWrapperPortfolioSectionContentItemHeader>
-              <MainWrapperPortfolioSectionContentItemFooter>
-                Dowiedz się więcej
-              </MainWrapperPortfolioSectionContentItemFooter>
-            </MainWrapperPortfolioSectionContentItem>
-            <MainWrapperPortfolioSectionContentItem>
-              <MainWrapperPortfolioSectionContentItemHeader>
-                Poczta elektroniczna
-              </MainWrapperPortfolioSectionContentItemHeader>
-              <MainWrapperPortfolioSectionContentItemFooter>
-                Dowiedz się więcej
-              </MainWrapperPortfolioSectionContentItemFooter>
-            </MainWrapperPortfolioSectionContentItem>
-            <MainWrapperPortfolioSectionContentItem>
-              <MainWrapperPortfolioSectionContentItemHeader>
-                Rozwiązania dedykowane
-              </MainWrapperPortfolioSectionContentItemHeader>
-              <MainWrapperPortfolioSectionContentItemFooter>
-                Dowiedz się więcej
-              </MainWrapperPortfolioSectionContentItemFooter>
-            </MainWrapperPortfolioSectionContentItem>
-          </MainWrapperPortfolioSectionContent>
-        </MainWrapperPortfolioSection>
-      </MainWrapper>
-    )}
-  />
+const Main = props => (
+  <MainWrapper>
+    <MainWrapperSection>
+      <MainWrapperSectionContent>
+        <Header>Filozofia firmy</Header>
+        <MainWrapperSectionContentText>
+          Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
+          systemy CMS (Content Management System - system zarządzania treścią).
+          Wdrożenia są utrzymywane na własnej infrastrukturze serwerowej co wraz
+          utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
+          rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
+        </MainWrapperSectionContentText>
+        <ButtonWrapperContent>dowiedz się więcej</ButtonWrapperContent>
+      </MainWrapperSectionContent>
+    </MainWrapperSection>
+    <MainWrapperProject>
+      <MainWrapperProjectSection>
+        <MainWrapperProjectSectionLeft>
+          <PhotoProject name="project1.jpg" alt="PhotoProject" />
+        </MainWrapperProjectSectionLeft>
+        <MainWrapperProjectSectionRight>
+          <MainWrapperProjectSectionRightTop>
+            <PhotoProjectRight
+              src="/static/5954f0afe325151352f5fd7c4fb1dd95/project2.jpg"
+              alt="PhotoProject"
+            />
+          </MainWrapperProjectSectionRightTop>
+          <MainWrapperProjectSectionRightBottom></MainWrapperProjectSectionRightBottom>
+        </MainWrapperProjectSectionRight>
+      </MainWrapperProjectSection>
+    </MainWrapperProject>
+    <MainWrapperOfer>
+      <Image      
+        imgName="bg_ofert.png"
+        alt="Ofert Logo"      
+      />
+      <MainWrapperOferContent>
+        <Header>Nasza oferta</Header>
+        <div style={{ lineHeight: 1.6 }}>
+          Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
+          systemy CMS (Content Management System - system zarządzania treścią).
+          Wdrożenia są utrzymywane na własnej infrastrukturze serwerowej co wraz
+          utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
+          rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
+        </div>
+        <ButtonWrapper>Zobacz więcej</ButtonWrapper>
+      </MainWrapperOferContent>
+    </MainWrapperOfer>
+    <MainWrapperPortfolioSection>
+      <MainWrapperPortfolioSectionContent>
+        <MainWrapperPortfolioSectionContentItem>
+          <MainWrapperPortfolioSectionContentItemHeader>
+            Strony internetowe
+          </MainWrapperPortfolioSectionContentItemHeader>
+          <MainWrapperPortfolioSectionContentItemFooter>
+            Dowiedz się więcej
+          </MainWrapperPortfolioSectionContentItemFooter>
+        </MainWrapperPortfolioSectionContentItem>
+        <MainWrapperPortfolioSectionContentItem>
+          <MainWrapperPortfolioSectionContentItemHeader>
+            Poczta elektroniczna
+          </MainWrapperPortfolioSectionContentItemHeader>
+          <MainWrapperPortfolioSectionContentItemFooter>
+            Dowiedz się więcej
+          </MainWrapperPortfolioSectionContentItemFooter>
+        </MainWrapperPortfolioSectionContentItem>
+        <MainWrapperPortfolioSectionContentItem>
+          <MainWrapperPortfolioSectionContentItemHeader>
+            Rozwiązania dedykowane
+          </MainWrapperPortfolioSectionContentItemHeader>
+          <MainWrapperPortfolioSectionContentItemFooter>
+            Dowiedz się więcej
+          </MainWrapperPortfolioSectionContentItemFooter>
+        </MainWrapperPortfolioSectionContentItem>
+      </MainWrapperPortfolioSectionContent>
+    </MainWrapperPortfolioSection>
+  </MainWrapper>
 )
 
 export default Main
