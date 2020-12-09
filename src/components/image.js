@@ -2,32 +2,39 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Image = ({ imgName, ...props }) => (
-  <StaticQuery
-    query={graphql`
-      {
-        allImageSharp {
-          edges {
-            node {
-              fluid {
-                originalName
-                src
+
+export default class Image extends React.Component {
+  render() {
+    return (
+      <StaticQuery
+        query={graphql`
+          query {
+            allImageSharp {
+              edges {
+                node {
+                  fluid(maxWidth: 1200) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
             }
           }
-        }
-      }
-    `}
-    render={data => {
-      const image = data.allImageSharp.edges.find(
-        edge => edge.node.fluid.originalName === imgName
-      )
-      if (!image) {
-        return <p style={{color: 'black'}}>Brak obrazka</p>
-      }
-      return <Img fluid={image.node.fluid} {...props} />
-    }}
-  />
-)
-
-export default Image
+        `}
+        render={data => {
+          return (
+            <Img
+              fluid={
+                data.allImageSharp.edges.find(element => {               
+                  return (
+                    element.node.fluid.src.split("/").pop() ===
+                    this.props.imgsrc
+                  )
+                }).node.fluid
+              }
+            />
+          )
+        }}
+      />
+    )
+  }
+}

@@ -1,6 +1,5 @@
 import React from "react"
 import Image from "../components/image"
-import Img from "gatsby-image"
 import styled from "styled-components"
 
 const MainWrapper = styled.div`
@@ -16,7 +15,6 @@ const MainWrapperSection = styled.div`
 `
 
 const MainWrapperSectionContent = styled.div`
-  padding: 50px 0;
   width: 80%;
   margin: 0 auto;
   background: none;
@@ -114,47 +112,69 @@ const ButtonWrapperContent = styled.button`
   }
 `
 
-const MainWrapperProject = styled.div``
+const MainWrapperProject = styled.div`
+  max-height: 1000px;
+  padding-bottom: 75px;
+`
 
 const MainWrapperProjectSection = styled.div`
-  display: grid;
-  grid-template-columns: 0.65fr 0.35fr;
-  height: 980px;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
   width: 100%;
 `
 const MainWrapperProjectSectionLeft = styled.div`
-  grid: column;
-  height: 100%;
-  width: 60%;
+  width: 65%;
 `
 const MainWrapperProjectSectionRight = styled.div`
-  grid: row;
-  grid-template-rows: 0.5fr 0.5fr;
+  display: flex;
+  flex-direction: column;
+  width: 35%;
 `
 const MainWrapperProjectSectionRightTop = styled.div`
-  height: 50%;
-  width: auto;
+  max-height: 400px;
 `
 const MainWrapperProjectSectionRightBottom = styled.div`
-  height: 50%;
-  width: auto;
+  max-height: 400px;
+  flex-shrink: 1;
 `
 
 const MainWrapperOfer = styled.div`
-  display: block;
+  display: grid;
   width: 100%;
   height: 450px;
-  color: black;
+  color: white;
 `
 
 const MainWrapperOferContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  position: absolute;
   width: 80%;
-  margin: 0 auto;
-  padding: 50px 0 185px;
+
+  padding: 50px 0 185px 0;
   font-size: 20px;
   font-weight: 400;
   line-height: 23px;
   font-family: Lato, sans-serif;
+`
+const PhotoOfert = styled(Image)`
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+`
+const Header = styled.div`
+  display: grid;
+  text-align: center;
+  margin: 0 auto 25px auto;
+  width: 200px;
+  border-bottom: 3px solid #c23b37;
+  font-size: 35px;
+  font-family: "Lovelo Black";
+  line-height: 42px;
 `
 
 const MainWrapperPortfolioSection = styled.div`
@@ -171,6 +191,7 @@ const MainWrapperPortfolioSectionContent = styled.div`
 `
 const MainWrapperPortfolioSectionContentItemFooter = styled.div`
   display: flex;
+  position: absolute;
   height: 80%;
   justify-content: flex-end;
   align-items: flex-end;
@@ -185,6 +206,7 @@ const MainWrapperPortfolioSectionContentItemFooter = styled.div`
 
 const MainWrapperPortfolioSectionContentItemHeader = styled.div`
   display: flex;
+  position: absolute;
   justify-content: flex-start;
   align-items: flex-start;
   font-size: 35px;
@@ -197,6 +219,12 @@ const MainWrapperPortfolioSectionContentItemHeader = styled.div`
   :hover {
     color: #000;
   }
+`
+const PhotoPortfolio = styled(Image)`
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: block;
 `
 
 const MainWrapperPortfolioSectionContentItem = styled.button`
@@ -234,40 +262,16 @@ const MainWrapperPortfolioSectionContentItem = styled.button`
   }
 `
 
-const Header = styled.div`
-  display: block;
-  text-align: center;
-  margin: 0 auto 25px auto;
-  width: 200px;
-  border-bottom: 3px solid #c23b37;
-  font-size: 35px;
-  font-family: "Lovelo Black";
-  line-height: 42px;
-`
-
-const PhotoOfert = styled(Image)`
-  display: block;
+const PhotoProject = styled(Image)`
   background-size: cover;
-  height: 450px;
+  height: 100%;
   width: 100%;
 `
 
-const PhotoProject = styled(Img)`
-  display: block;
+const PhotoProjectRight = styled(Image)`
   background-size: cover;
-  height: auto;
-  max-width: 60%;
-  position: absolute;
-  z-index: -1;
-`
-
-const PhotoProjectRight = styled(Img)`
-  display: flex;
-  background-size: cover;
-  height: auto;
-  width: auto;
-  position: absolute;
-  z-index: -1;
+  height: 100%;
+  width: 100%;
 `
 
 const Main = props => (
@@ -288,24 +292,20 @@ const Main = props => (
     <MainWrapperProject>
       <MainWrapperProjectSection>
         <MainWrapperProjectSectionLeft>
-          <PhotoProject name="project1.jpg" alt="PhotoProject" />
+          <PhotoProject imgsrc="project1.jpg" />
         </MainWrapperProjectSectionLeft>
         <MainWrapperProjectSectionRight>
           <MainWrapperProjectSectionRightTop>
-            <PhotoProjectRight
-              src="/static/5954f0afe325151352f5fd7c4fb1dd95/project2.jpg"
-              alt="PhotoProject"
-            />
+            <PhotoProjectRight imgsrc="project2.jpg" />
           </MainWrapperProjectSectionRightTop>
-          <MainWrapperProjectSectionRightBottom></MainWrapperProjectSectionRightBottom>
+          <MainWrapperProjectSectionRightBottom>
+            <PhotoProjectRight imgsrc="project3.jpg" />
+          </MainWrapperProjectSectionRightBottom>
         </MainWrapperProjectSectionRight>
       </MainWrapperProjectSection>
     </MainWrapperProject>
     <MainWrapperOfer>
-      <Image      
-        imgName="bg_ofert.png"
-        alt="Ofert Logo"      
-      />
+      <PhotoOfert imgsrc="bg_ofert.png" />
       <MainWrapperOferContent>
         <Header>Nasza oferta</Header>
         <div style={{ lineHeight: 1.6 }}>
@@ -321,6 +321,7 @@ const Main = props => (
     <MainWrapperPortfolioSection>
       <MainWrapperPortfolioSectionContent>
         <MainWrapperPortfolioSectionContentItem>
+          <PhotoPortfolio imgsrc="ofert1.jpg" />
           <MainWrapperPortfolioSectionContentItemHeader>
             Strony internetowe
           </MainWrapperPortfolioSectionContentItemHeader>
@@ -329,6 +330,7 @@ const Main = props => (
           </MainWrapperPortfolioSectionContentItemFooter>
         </MainWrapperPortfolioSectionContentItem>
         <MainWrapperPortfolioSectionContentItem>
+          <PhotoPortfolio imgsrc="ofert2.jpg" />
           <MainWrapperPortfolioSectionContentItemHeader>
             Poczta elektroniczna
           </MainWrapperPortfolioSectionContentItemHeader>
@@ -337,6 +339,7 @@ const Main = props => (
           </MainWrapperPortfolioSectionContentItemFooter>
         </MainWrapperPortfolioSectionContentItem>
         <MainWrapperPortfolioSectionContentItem>
+          <PhotoPortfolio imgsrc="ofert3.jpg" />
           <MainWrapperPortfolioSectionContentItemHeader>
             Rozwiązania dedykowane
           </MainWrapperPortfolioSectionContentItemHeader>
