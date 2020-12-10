@@ -15,6 +15,8 @@ const MainWrapperSection = styled.div`
 `
 
 const MainWrapperSectionContent = styled.div`
+  display: block;
+  position: relative;
   width: 80%;
   margin: 0 auto;
   background: none;
@@ -112,31 +114,45 @@ const ButtonWrapperContent = styled.button`
   }
 `
 
-const MainWrapperProject = styled.div`
-  max-height: 1000px;
-  padding-bottom: 75px;
-`
-
 const MainWrapperProjectSection = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 0.6fr 0.4fr;
+  grid-template-rows: 1fr;
+  max-height: 800px;
+  overflow: hidden;
 `
 const MainWrapperProjectSectionLeft = styled.div`
-  width: 65%;
+  display: grid;
+  position: relative;
+  height: 100%;
+  transition: 0.5s;
+  & :hover {
+    transform: rotate(2deg) scale(1.1);
+  }
 `
 const MainWrapperProjectSectionRight = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 35%;
+  display: grid;
+  grid-template-rows: 0.5fr 0.5fr;
+  position: relative;
+  overflow: hidden;
 `
 const MainWrapperProjectSectionRightTop = styled.div`
-  max-height: 400px;
+  display: grid;
+  height: auto;
+  transition: 0.5s; 
+  overflow: hidden;
+  & :hover {
+    transform: rotate(2deg) scale(1.1);
+  }
 `
 const MainWrapperProjectSectionRightBottom = styled.div`
-  max-height: 400px;
-  flex-shrink: 1;
+  display: grid;
+  height: auto;
+  overflow: hidden;
+  transition: 0.5s;
+  & :hover {
+    transform: rotate(2deg) scale(1.1);
+  }
 `
 
 const MainWrapperOfer = styled.div`
@@ -160,11 +176,10 @@ const MainWrapperOferContent = styled.div`
   font-family: Lato, sans-serif;
 `
 const PhotoOfert = styled(Image)`
-  background-size: cover;
-  height: 100%;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
   display: block;
-  position: absolute;
+  object-fit: cover;
 `
 const Header = styled.div`
   display: grid;
@@ -263,15 +278,18 @@ const MainWrapperPortfolioSectionContentItem = styled.button`
 `
 
 const PhotoProject = styled(Image)`
-  background-size: cover;
-  height: 100%;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
+  position: absolute;
 `
 
 const PhotoProjectRight = styled(Image)`
-  background-size: cover;
-  height: 100%;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
 `
 
 const Main = props => (
@@ -289,21 +307,19 @@ const Main = props => (
         <ButtonWrapperContent>dowiedz się więcej</ButtonWrapperContent>
       </MainWrapperSectionContent>
     </MainWrapperSection>
-    <MainWrapperProject>
-      <MainWrapperProjectSection>
-        <MainWrapperProjectSectionLeft>
-          <PhotoProject imgsrc="project1.jpg" />
-        </MainWrapperProjectSectionLeft>
-        <MainWrapperProjectSectionRight>
-          <MainWrapperProjectSectionRightTop>
-            <PhotoProjectRight imgsrc="project2.jpg" />
-          </MainWrapperProjectSectionRightTop>
-          <MainWrapperProjectSectionRightBottom>
-            <PhotoProjectRight imgsrc="project3.jpg" />
-          </MainWrapperProjectSectionRightBottom>
-        </MainWrapperProjectSectionRight>
-      </MainWrapperProjectSection>
-    </MainWrapperProject>
+    <MainWrapperProjectSection>
+      <MainWrapperProjectSectionLeft>
+        <PhotoProject imgsrc="project1.jpg" />
+      </MainWrapperProjectSectionLeft>
+      <MainWrapperProjectSectionRight>
+        <MainWrapperProjectSectionRightTop>
+          <PhotoProjectRight imgsrc="project2.jpg" />
+        </MainWrapperProjectSectionRightTop>
+        <MainWrapperProjectSectionRightBottom>
+          <PhotoProjectRight imgsrc="project3.jpg" />
+        </MainWrapperProjectSectionRightBottom>
+      </MainWrapperProjectSectionRight>
+    </MainWrapperProjectSection>
     <MainWrapperOfer>
       <PhotoOfert imgsrc="bg_ofert.png" />
       <MainWrapperOferContent>
