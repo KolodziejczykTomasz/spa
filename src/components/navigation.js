@@ -3,9 +3,26 @@ import { Link } from "gatsby"
 
 import styled from "styled-components"
 
+const BackgroudDark = styled.div`
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+`
+const NavMain = styled.div`
+  display: flex;
+  margin: 0 auto;
+  align-items: end;
+  max-width: 1250px;
+  height: 90px;
+`
+
 const NavWrapper = styled.div`
   display: flex;
   position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -15,15 +32,15 @@ const NavWrapper = styled.div`
   margin-bottom: 50px;
   background-color: transparent;
   z-index: 9999;
-`
-
-const NavMain = styled.div`
-  display: flex;
-  position: fixed;
-  margin: 0 auto;
-  align-items: end;
-  max-width: 1250px;
-  height: 90px;
+  @media (max-width: 768px) {
+    background-color: #000;
+    color: #fff;
+    justify-content: flex-start;  
+    ${NavMain} {
+      flex-direction: column;
+      height: auto;     
+    }
+  }
 `
 
 const NavButton = styled(Link)`
@@ -79,18 +96,19 @@ class Navigation extends Component {
   render() {
     return (
       <NavWrapper>
+        <BackgroudDark></BackgroudDark>
         <NavMain>
           <LogoWrapper to="/">
             <div>extranet </div>
             <div>internet creator</div>
           </LogoWrapper>
-          <NavButton to="/about">Firma</NavButton>
-          <NavButton to="/blog">Blog</NavButton>
-          <NavButton to="/services">Usługi</NavButton>
-          <NavButton to="/contact">Kontakt</NavButton>
-          <NavButton to="/portfolio">Portfolio</NavButton>
-          <NavButton to="/search">Wyszukiwanie</NavButton>
-          <NavButton to="/login">Logowanie</NavButton>
+          <NavButton to="/">Firma</NavButton>
+          <NavButton to="/">Blog</NavButton>
+          <NavButton to="/">Usługi</NavButton>
+          <NavButton to="/">Kontakt</NavButton>
+          <NavButton to="/">Portfolio</NavButton>
+          <NavButton to="/">Wyszukiwanie</NavButton>
+          <NavButton to="/">Logowanie</NavButton>
         </NavMain>
       </NavWrapper>
     )

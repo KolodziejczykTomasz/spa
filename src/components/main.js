@@ -114,7 +114,9 @@ const ButtonWrapperContent = styled.button`
   }
 `
 
-const MainWrapperProjectSection = styled.div`
+/** Project Section **/
+
+const ProjectSection = styled.div`
   display: grid;
   grid-template-columns: 0.6fr 0.4fr;
   grid-template-rows: 1fr;
@@ -160,11 +162,11 @@ const BackgroudProjectLeft = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
 `
 
-const MainWrapperProjectSectionLeft = styled.div`
+const ProjectSectionLeft = styled.div`
   display: grid;
   position: relative;
   height: auto;
@@ -187,11 +189,11 @@ const MainWrapperProjectSectionLeft = styled.div`
       width: 100%;
       left: 0;
     }
-    transform: rotate(2deg) scale(1.1);
+    transform: rotate(1deg) scale(1.1);
   }
 `
 
-const MainWrapperProjectSectionRight = styled.div`
+const ProjectSectionRight = styled.div`
   display: grid;
   grid-template-rows: 0.5fr 0.5fr;
   position: relative;
@@ -203,11 +205,11 @@ const BackgroudProjectTop = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
 `
 
-const MainWrapperProjectSectionRightTop = styled.div`
+const ProjectSectionRightTop = styled.div`
   display: grid;
   height: auto;
   transition: 0.5s;
@@ -229,7 +231,7 @@ const MainWrapperProjectSectionRightTop = styled.div`
       width: 100%;
       left: 0;
     }
-    transform: rotate(2deg) scale(1.1);
+    transform: rotate(1deg) scale(1.1);
   }
 `
 
@@ -238,11 +240,11 @@ const BackgroudProjectBottom = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
 `
 
-const MainWrapperProjectSectionRightBottom = styled.div`
+const ProjectSectionRightBottom = styled.div`
   display: grid;
   height: auto;
   transition: 0.5s;
@@ -264,18 +266,33 @@ const MainWrapperProjectSectionRightBottom = styled.div`
       width: 100%;
       left: 0;
     }
-    transform: rotate(2deg) scale(1.1);
+    transform: rotate(0.2deg) scale(1.1);
   }
 `
+const PhotoProject = styled(Image)`
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
+  position: absolute;
+`
 
-const MainWrapperOfer = styled.div`
+const PhotoProjectRight = styled(Image)`
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+`
+
+/** Ofer Section **/
+
+const OferSection = styled.div`
   display: grid;
   width: 100%;
   height: 450px;
   color: white;
 `
 
-const MainWrapperOferContent = styled.div`
+const OferContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -304,38 +321,43 @@ const Header = styled.div`
   line-height: 42px;
 `
 
-const MainWrapperPortfolioSection = styled.div`
+/** Portfolio Section **/
+
+const PortfolioSection = styled.div`
   width: 100%;
 `
 
-const MainWrapperPortfolioSectionContent = styled.div`
+const PhotoPortfolio = styled(Image)`
+  max-width: 100%;
+  max-height: 100%;
+  display: grid;
+  object-fit: cover;
+  position: absolute;
+`
+const PortfolioSectionContentWrapper = styled.div`
+  display: block;
+  position: relative;
+`
+const PortfolioSectionContent = styled.div`
   display: flex;
   justify-content: space-between;
   margin: -75px auto 0 auto;
   height: 582px;
   width: 70%;
   padding: 0 0 15px 0;
+  cursor: pointer;
 `
-const MainWrapperPortfolioSectionContentItemFooter = styled.div`
-  display: flex;
-  position: absolute;
-  height: 80%;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding-right: 5px;
+const PortfolioSectionContentItemFooter = styled.div`
   position: relative;
+  height: auto;
+  width: 100%;
   font-size: 15px;
   font-family: "Lovelo Black";
   transition: 0.3s ease-in-out;
   opacity: 0;
-  z-index: 1;
 `
 
-const MainWrapperPortfolioSectionContentItemHeader = styled.div`
-  display: flex;
-  position: absolute;
-  justify-content: flex-start;
-  align-items: flex-start;
+const PortfolioSectionContentItemHeader = styled.div`
   font-size: 35px;
   line-height: 53px;
   color: #000;
@@ -348,7 +370,9 @@ const MainWrapperPortfolioSectionContentItemHeader = styled.div`
   }
 `
 
-const MainWrapperPortfolioSectionContentItem = styled.div`
+const PortfolioSectionContentItem = styled.div`
+  display: grid;
+  position: relative;
   width: 310px;
   height: 560px;
   border: 3px dotted black;
@@ -357,12 +381,11 @@ const MainWrapperPortfolioSectionContentItem = styled.div`
   font-family: "Lovelo Black";
   line-height: 42px;
   text-align: left;
-  z-index: 9999;
   transition: 0.3s ease-in-out;
   :focus {
     border: 3px dotted #c23b37;
   }
-  ${MainWrapperPortfolioSectionContentItemHeader}:after {
+  ${PortfolioSectionContentItemHeader}:after {
     position: absolute;
     transition: 0.3s;
     content: "";
@@ -373,34 +396,14 @@ const MainWrapperPortfolioSectionContentItem = styled.div`
     background: #c23b37;
   }
   :hover {
-    ${MainWrapperPortfolioSectionContentItemFooter} {
+    ${PortfolioSectionContentItemFooter} {
       opacity: 1;
     }
-    ${MainWrapperPortfolioSectionContentItemHeader}:after {
+    ${PortfolioSectionContentItemHeader}:after {
       width: 100%;
       left: 0;
     }
   }
-`
-
-const PhotoProject = styled(Image)`
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-  object-fit: cover;
-  position: absolute;
-`
-
-const PhotoProjectRight = styled(Image)`
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-`
-
-const PhotoPortfolio = styled(Image)`
-  width: 20px;
-  height: 100%;
-  display: block;
 `
 
 const Main = () => (
@@ -418,38 +421,37 @@ const Main = () => (
         <ButtonWrapperContent>dowiedz się więcej</ButtonWrapperContent>
       </MainWrapperSectionContent>
     </MainWrapperSection>
-    <MainWrapperProjectSection>
-      <MainWrapperProjectSectionLeft>
+    <ProjectSection>
+      <ProjectSectionLeft>
         <PhotoProject imgsrc="project1.jpg" />
         <BackgroudProjectLeft>
           <HeaderSectionProject>
-            {" "}
             <h1>usługi</h1>Urząd Gminy 1
           </HeaderSectionProject>
         </BackgroudProjectLeft>
-      </MainWrapperProjectSectionLeft>
-      <MainWrapperProjectSectionRight>
-        <MainWrapperProjectSectionRightTop>
+      </ProjectSectionLeft>
+      <ProjectSectionRight>
+        <ProjectSectionRightTop>
           <PhotoProjectRight imgsrc="project2.jpg" />
           <BackgroudProjectTop>
             <HeaderSectionProjectRight>
               <h1>usługi</h1>Urząd Gminy 2
             </HeaderSectionProjectRight>
           </BackgroudProjectTop>
-        </MainWrapperProjectSectionRightTop>
-        <MainWrapperProjectSectionRightBottom>
+        </ProjectSectionRightTop>
+        <ProjectSectionRightBottom>
           <PhotoProjectRight imgsrc="project3.jpg" />
           <BackgroudProjectBottom>
             <HeaderSectionProjectRight>
               <h1>usługi</h1>Urząd Gminy 3
             </HeaderSectionProjectRight>
           </BackgroudProjectBottom>
-        </MainWrapperProjectSectionRightBottom>
-      </MainWrapperProjectSectionRight>
-    </MainWrapperProjectSection>
-    <MainWrapperOfer>
+        </ProjectSectionRightBottom>
+      </ProjectSectionRight>
+    </ProjectSection>
+    <OferSection>
       <PhotoOfert imgsrc="bg_ofert.png" />
-      <MainWrapperOferContent>
+      <OferContent>
         <Header>Nasza oferta</Header>
         <div style={{ lineHeight: 1.6 }}>
           Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
@@ -459,38 +461,41 @@ const Main = () => (
           rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
         </div>
         <ButtonWrapper>Zobacz więcej</ButtonWrapper>
-      </MainWrapperOferContent>
-    </MainWrapperOfer>
-    <MainWrapperPortfolioSection>
-      <MainWrapperPortfolioSectionContent>
-        <MainWrapperPortfolioSectionContentItem>
+      </OferContent>
+    </OferSection>
+    <PortfolioSection>
+      <PortfolioSectionContent>
+        <PortfolioSectionContentItem>
           <PhotoPortfolio imgsrc="ofert1.jpg" />
-          <MainWrapperPortfolioSectionContentItemHeader>
-            Strony internetowe
-          </MainWrapperPortfolioSectionContentItemHeader>
-          <MainWrapperPortfolioSectionContentItemFooter>
-            Dowiedz się więcej
-          </MainWrapperPortfolioSectionContentItemFooter>
-        </MainWrapperPortfolioSectionContentItem>
-        <MainWrapperPortfolioSectionContentItem>
-          <div>
-            <PhotoPortfolio imgsrc="ofert2.jpg" />
-          </div>
-
-          <MainWrapperPortfolioSectionContentItemHeader>
+          <PortfolioSectionContentWrapper>
+            <PortfolioSectionContentItemHeader>
+              Strony internetowe
+            </PortfolioSectionContentItemHeader>
+            <PortfolioSectionContentItemFooter>
+              Dowiedz się więcej
+            </PortfolioSectionContentItemFooter>
+          </PortfolioSectionContentWrapper>
+        </PortfolioSectionContentItem>
+        <PortfolioSectionContentItem>
+          <PhotoPortfolio imgsrc="ofert2.jpg" />
+          <PortfolioSectionContentItemHeader>
             Poczta elektroniczna
-          </MainWrapperPortfolioSectionContentItemHeader>
-          <MainWrapperPortfolioSectionContentItemFooter>
+          </PortfolioSectionContentItemHeader>
+          <PortfolioSectionContentItemFooter>
             Dowiedz się więcej
-          </MainWrapperPortfolioSectionContentItemFooter>
-        </MainWrapperPortfolioSectionContentItem>
-        <MainWrapperPortfolioSectionContentItem>
-          <div>
-            <Image imgsrc="ofert3.jpg" style={{ width: 20 }} />
-          </div>
-        </MainWrapperPortfolioSectionContentItem>
-      </MainWrapperPortfolioSectionContent>
-    </MainWrapperPortfolioSection>
+          </PortfolioSectionContentItemFooter>
+        </PortfolioSectionContentItem>
+        <PortfolioSectionContentItem>
+          <PhotoPortfolio imgsrc="ofert3.jpg" />
+          <PortfolioSectionContentItemHeader>
+            Rozwiązania dedykowane
+          </PortfolioSectionContentItemHeader>
+          <PortfolioSectionContentItemFooter>
+            Dowiedz się więcej
+          </PortfolioSectionContentItemFooter>
+        </PortfolioSectionContentItem>
+      </PortfolioSectionContent>
+    </PortfolioSection>
   </MainWrapper>
 )
 
