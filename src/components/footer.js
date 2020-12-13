@@ -105,7 +105,7 @@ const Footer = () => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "bg_footer.png" }) {
+        placeholderImage: file(relativePath: { eq: "bg_footer.jpg" }) {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid

@@ -509,7 +509,7 @@ const Main = () => (
       </ProjectSectionRight>
     </ProjectSection>
     <OferSection>
-      <PhotoOfert imgsrc="bg_ofert.png" />
+      <PhotoOfert imgsrc="bg_ofert.jpg" />
       <OferContent>
         <Header>Nasza oferta</Header>
         <div style={{ lineHeight: 1.6 }}>
