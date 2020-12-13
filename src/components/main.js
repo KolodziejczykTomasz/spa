@@ -130,6 +130,7 @@ const HeaderSectionProject = styled.div`
   margin: 0 auto;
   margin-top: calc(50% - 200px);
   font-size: 35px;
+  text-transform: uppercase;
   line-height: 53px;
   text-align: center;
   height: 200px;
@@ -142,12 +143,13 @@ const HeaderSectionProject = styled.div`
 `
 
 const HeaderSectionProjectRight = styled.div`
-  display: block;
+  display: grid;
   margin: 0 auto;
-  margin-top: calc(50% - 200px);
+  margin-top: calc(50% - 150px);
   font-size: 25px;
   line-height: 23px;
   text-align: center;
+  text-transform: uppercase;
   height: 130px;
   width: 200px;
   color: #fff;
@@ -176,7 +178,7 @@ const ProjectSectionLeft = styled.button`
   transition: 0.3s ease-in;
   ${HeaderSectionProject}:after {
     position: absolute;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
     content: "";
     width: 0;
     left: 0%;
@@ -193,7 +195,7 @@ const ProjectSectionLeft = styled.button`
       left: 0;
     }
     img {
-      transform: rotate(0.2deg) scale(1.3);
+      transform: rotate(0.1deg) scale(1.3);
     }
   }
   :focus {
@@ -226,7 +228,7 @@ const ProjectSectionRightTop = styled.button`
   transition: 0.5s;
   ${HeaderSectionProjectRight}:after {
     position: absolute;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
     content: "";
     width: 0;
     left: 0%;
@@ -243,7 +245,7 @@ const ProjectSectionRightTop = styled.button`
       left: 0;
     }
     img {
-      transform: rotate(0.2deg) scale(1.3);
+      transform: rotate(0.1deg) scale(1.3);
     }
   }
   :focus {
@@ -269,7 +271,7 @@ const ProjectSectionRightBottom = styled.button`
   transition: 0.5s;
   ${HeaderSectionProjectRight}:after {
     position: absolute;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
     content: "";
     width: 0;
     left: 0%;
@@ -286,7 +288,7 @@ const ProjectSectionRightBottom = styled.button`
       left: 0;
     }
     img {
-      transform: rotate(0.2deg) scale(1.3);
+      transform: rotate(0.1deg) scale(1.3);
     }
     :focus {
       border: 3px dotted #c23b37 !important;
