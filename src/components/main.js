@@ -253,7 +253,7 @@ const ProjectSectionRightTop = styled.button`
   }
 `
 
-const BackgroudProjectBottom = styled.div`
+const BackgroudProjectBottom = styled.button`
   display: grid;
   position: absolute;
   width: 100%;
