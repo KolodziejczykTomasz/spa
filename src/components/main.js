@@ -224,7 +224,7 @@ const BackgroudProjectTop = styled.button`
 
 const ProjectSectionRightTop = styled.button`
   display: grid;
-  height: auto;
+  height: 100%;
   transition: 0.5s;
   ${HeaderSectionProjectRight}:after {
     position: absolute;
