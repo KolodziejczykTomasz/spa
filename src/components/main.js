@@ -231,7 +231,7 @@ const ProjectSectionRightTop = styled.button`
     transition: 0.3s ease-in-out;
     content: "";
     width: 0;
-    left: 0%;
+    left: 0;
     bottom: 0;
     height: 4px;
     background: #c23b37;
@@ -267,14 +267,14 @@ const BackgroudProjectBottom = styled.div`
 
 const ProjectSectionRightBottom = styled.button`
   display: grid;
-  height: auto;
+  height: 100%;
   transition: 0.5s;
   ${HeaderSectionProjectRight}:after {
     position: absolute;
     transition: 0.3s ease-in-out;
     content: "";
     width: 0;
-    left: 0%;
+    left: 0;
     bottom: 0;
     height: 4px;
     background: #c23b37;
