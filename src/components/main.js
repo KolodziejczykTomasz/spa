@@ -164,9 +164,12 @@ const BackgroudProjectLeft = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
+  :focus {
+    border: 3px dotted #c23b37 !important;
+  }
 `
 
-const ProjectSectionLeft = styled.div`
+const ProjectSectionLeft = styled.button`
   display: grid;
   position: relative;
   height: auto;
@@ -189,7 +192,12 @@ const ProjectSectionLeft = styled.div`
       width: 100%;
       left: 0;
     }
-    transform: rotate(1deg) scale(1.1);
+    img {
+      transform: rotate(0.2deg) scale(1.3);
+    }
+  }
+  :focus {
+    border: 3px dotted #c23b37 !important;
   }
 `
 
@@ -200,16 +208,19 @@ const ProjectSectionRight = styled.div`
   overflow: hidden;
 `
 
-const BackgroudProjectTop = styled.div`
+const BackgroudProjectTop = styled.button`
   display: grid;
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
+  :focus {
+    border: 3px dotted #c23b37 !important;
+  }
 `
 
-const ProjectSectionRightTop = styled.div`
+const ProjectSectionRightTop = styled.button`
   display: grid;
   height: auto;
   transition: 0.5s;
@@ -231,7 +242,12 @@ const ProjectSectionRightTop = styled.div`
       width: 100%;
       left: 0;
     }
-    transform: rotate(1deg) scale(1.1);
+    img {
+      transform: rotate(0.2deg) scale(1.3);
+    }
+  }
+  :focus {
+    border: 3px dotted #c23b37 !important;
   }
 `
 
@@ -242,9 +258,12 @@ const BackgroudProjectBottom = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
+  :focus {
+    border: 3px dotted #c23b37 !important;
+  }
 `
 
-const ProjectSectionRightBottom = styled.div`
+const ProjectSectionRightBottom = styled.button`
   display: grid;
   height: auto;
   transition: 0.5s;
@@ -266,7 +285,12 @@ const ProjectSectionRightBottom = styled.div`
       width: 100%;
       left: 0;
     }
-    transform: rotate(0.2deg) scale(1.1);
+    img {
+      transform: rotate(0.2deg) scale(1.3);
+    }
+    :focus {
+      border: 3px dotted #c23b37 !important;
+    }
   }
 `
 const PhotoProject = styled(Image)`
@@ -328,15 +352,20 @@ const PortfolioSection = styled.div`
 `
 
 const PhotoPortfolio = styled(Image)`
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   display: grid;
-  object-fit: cover;
-  position: absolute;
 `
-const PortfolioSectionContentWrapper = styled.div`
-  display: block;
-  position: relative;
+const BackgroudPortfolio = styled.div`
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  :focus {
+    border: 3px dotted #c23b37 !important;
+  }
 `
 const PortfolioSectionContent = styled.div`
   display: flex;
@@ -345,12 +374,29 @@ const PortfolioSectionContent = styled.div`
   height: 582px;
   width: 70%;
   padding: 0 0 15px 0;
+  overflow: hidden;
   cursor: pointer;
 `
+
+const PortfolioSectionContentWrapper = styled.button`
+  display: grid;
+  position: absolute;
+  overflow: hidden;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  :focus {
+    border: 3px dotted #c23b37 !important;
+  }
+`
 const PortfolioSectionContentItemFooter = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   position: relative;
   height: auto;
   width: 100%;
+  color: #fff;
   font-size: 15px;
   font-family: "Lovelo Black";
   transition: 0.3s ease-in-out;
@@ -358,15 +404,21 @@ const PortfolioSectionContentItemFooter = styled.div`
 `
 
 const PortfolioSectionContentItemHeader = styled.div`
+  display: gird;
+  position: absolute;
+  opacity: 1;
+  z-index: 999;
+  text-align: left;
   font-size: 35px;
+  font-weight: 600;
   line-height: 53px;
-  color: #000;
+  height: auto;
+  color: #fff;
   padding-left: 5px;
-  position: relative;
   overflow: hidden;
   transition: 0.3s ease-in-out;
   :hover {
-    color: #000;
+    color: #fff;
   }
 `
 
@@ -375,7 +427,6 @@ const PortfolioSectionContentItem = styled.div`
   position: relative;
   width: 310px;
   height: 560px;
-  border: 3px dotted black;
   transition: 0.3s;
   font-size: 35px;
   font-family: "Lovelo Black";
@@ -383,14 +434,14 @@ const PortfolioSectionContentItem = styled.div`
   text-align: left;
   transition: 0.3s ease-in-out;
   :focus {
-    border: 3px dotted #c23b37;
+    border: 3px dotted #c23b37 !important;
   }
   ${PortfolioSectionContentItemHeader}:after {
     position: absolute;
     transition: 0.3s;
     content: "";
     width: 0;
-    left: 0%;
+    left: 0;
     bottom: 0;
     height: 4px;
     background: #c23b37;
@@ -402,6 +453,12 @@ const PortfolioSectionContentItem = styled.div`
     ${PortfolioSectionContentItemHeader}:after {
       width: 100%;
       left: 0;
+    }
+    ${BackgroudPortfolio} {
+      opacity: 1;
+    }
+    img {
+      transform: scale(1.3);
     }
   }
 `
@@ -471,28 +528,38 @@ const Main = () => (
             <PortfolioSectionContentItemHeader>
               Strony internetowe
             </PortfolioSectionContentItemHeader>
-            <PortfolioSectionContentItemFooter>
-              Dowiedz się więcej
-            </PortfolioSectionContentItemFooter>
+            <BackgroudPortfolio>
+              <PortfolioSectionContentItemFooter>
+                Dowiedz się więcej
+              </PortfolioSectionContentItemFooter>
+            </BackgroudPortfolio>
           </PortfolioSectionContentWrapper>
         </PortfolioSectionContentItem>
         <PortfolioSectionContentItem>
           <PhotoPortfolio imgsrc="ofert2.jpg" />
-          <PortfolioSectionContentItemHeader>
-            Poczta elektroniczna
-          </PortfolioSectionContentItemHeader>
-          <PortfolioSectionContentItemFooter>
-            Dowiedz się więcej
-          </PortfolioSectionContentItemFooter>
+          <PortfolioSectionContentWrapper>
+            <PortfolioSectionContentItemHeader>
+              Poczta elektroniczna
+            </PortfolioSectionContentItemHeader>
+            <BackgroudPortfolio>
+              <PortfolioSectionContentItemFooter>
+                Dowiedz się więcej
+              </PortfolioSectionContentItemFooter>
+            </BackgroudPortfolio>
+          </PortfolioSectionContentWrapper>
         </PortfolioSectionContentItem>
         <PortfolioSectionContentItem>
           <PhotoPortfolio imgsrc="ofert3.jpg" />
-          <PortfolioSectionContentItemHeader>
-            Rozwiązania dedykowane
-          </PortfolioSectionContentItemHeader>
-          <PortfolioSectionContentItemFooter>
-            Dowiedz się więcej
-          </PortfolioSectionContentItemFooter>
+          <PortfolioSectionContentWrapper>
+            <PortfolioSectionContentItemHeader>
+              Rozwiązania dedykowane
+            </PortfolioSectionContentItemHeader>
+            <BackgroudPortfolio>
+              <PortfolioSectionContentItemFooter>
+                Dowiedz się więcej
+              </PortfolioSectionContentItemFooter>
+            </BackgroudPortfolio>
+          </PortfolioSectionContentWrapper>
         </PortfolioSectionContentItem>
       </PortfolioSectionContent>
     </PortfolioSection>
