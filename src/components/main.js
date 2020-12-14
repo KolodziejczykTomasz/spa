@@ -19,6 +19,7 @@ const MainWrapperSectionContent = styled.div`
   position: relative;
   width: 80%;
   margin: 0 auto;
+  padding: 50px 0 50px 0;
   background: none;
 `
 const MainWrapperSectionContentText = styled.div`
@@ -31,12 +32,11 @@ const MainWrapperSectionContentText = styled.div`
 
 const ButtonWrapper = styled.button`
   display: block;
-  margin: 50px auto 0 auto;
+  margin: 30px auto 0 auto;
   position: relative;
   overflow: hidden;
   width: auto;
-  height: 50px;
-  padding: 1px 20px;
+  padding: 5px 20px;
   border: none;
   text-transform: uppercase;
   color: white;
@@ -72,12 +72,11 @@ const ButtonWrapper = styled.button`
 `
 const ButtonWrapperContent = styled.button`
   display: block;
-  margin: 50px auto;
+  margin: 30px auto 0 auto;
   position: relative;
   overflow: hidden;
   width: auto;
-  height: 50px;
-  padding: 1px 20px;
+  padding: 5px 20px;
   border: none;
   font-family: "Lovelo Black";
   font-size: 15px;
@@ -156,6 +155,18 @@ const HeaderSectionProjectRight = styled.div`
   position: relative;
   overflow: hidden;
   transition: 0.3s ease-in-out;
+`
+
+const ProjectSectionContentWrapper = styled.button`
+  display: grid;
+  position: absolute;
+  overflow: hidden;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  :focus {
+    border: 3px dotted #c23b37 !important;
+  }
 `
 
 const BackgroudProjectLeft = styled.div`
@@ -482,28 +493,34 @@ const Main = () => (
     <ProjectSection>
       <ProjectSectionLeft>
         <PhotoProject imgsrc="project1.jpg" />
-        <BackgroudProjectLeft>
-          <HeaderSectionProject>
-            <h1>usługi</h1>Urząd Gminy 1
-          </HeaderSectionProject>
-        </BackgroudProjectLeft>
+        <ProjectSectionContentWrapper>
+          <BackgroudProjectLeft>
+            <HeaderSectionProject>
+              <h1>usługi</h1>Urząd Gminy 1
+            </HeaderSectionProject>
+          </BackgroudProjectLeft>
+        </ProjectSectionContentWrapper>
       </ProjectSectionLeft>
       <ProjectSectionRight>
         <ProjectSectionRightTop>
           <PhotoProjectRight imgsrc="project2.jpg" />
-          <BackgroudProjectTop>
-            <HeaderSectionProjectRight>
-              <h1>usługi</h1>Urząd Gminy 2
-            </HeaderSectionProjectRight>
-          </BackgroudProjectTop>
+          <ProjectSectionContentWrapper>
+            <BackgroudProjectTop>
+              <HeaderSectionProjectRight>
+                <h1>usługi</h1>Urząd Gminy 2
+              </HeaderSectionProjectRight>
+            </BackgroudProjectTop>
+          </ProjectSectionContentWrapper>
         </ProjectSectionRightTop>
         <ProjectSectionRightBottom>
           <PhotoProjectRight imgsrc="project3.jpg" />
-          <BackgroudProjectBottom>
-            <HeaderSectionProjectRight>
-              <h1>usługi</h1>Urząd Gminy 3
-            </HeaderSectionProjectRight>
-          </BackgroudProjectBottom>
+          <ProjectSectionContentWrapper>
+            <BackgroudProjectBottom>
+              <HeaderSectionProjectRight>
+                <h1>usługi</h1>Urząd Gminy 3
+              </HeaderSectionProjectRight>
+            </BackgroudProjectBottom>
+          </ProjectSectionContentWrapper>
         </ProjectSectionRightBottom>
       </ProjectSectionRight>
     </ProjectSection>

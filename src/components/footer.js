@@ -41,19 +41,28 @@ const WrapperFooter = styled.div`
   height: 100%;
   margin-left: 10%;
   margin-right: 10%;
+  font-family: "Lato";
 `
 const WrapperFooterContentTop = styled.div`
   display: grid;
   grid-template-columns: 0.3fr 0.4fr 0.3fr;
+  font-family: "Lovelo Black";
 `
 const WrapperFooterContentItemFirst = styled.div`
   height: 560px;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Lato";
 `
 const WrapperFooterContentItemSecond = styled.div`
   height: 560px;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Lato";
 `
 const WrapperFooterContentItemThird = styled.div`
   height: 560px;
+  font-family: "Lato";
 `
 
 const WrapperFooterContentBottom = styled.div`
@@ -101,6 +110,11 @@ const ButtonWrapper = styled.button`
   }
 `
 
+const FooterList = styled.ul``
+const FooterListItem = styled.li`
+  list-style: none;  
+`
+
 const Footer = () => (
   <StaticQuery
     query={graphql`
@@ -125,42 +139,87 @@ const Footer = () => (
           <WrapperFooterContentTop>
             <WrapperFooterContentItemFirst>
               <div>
-                <h1 style={{ fontSize: 20, marginTop: 40 }}>Dane firmy</h1>
+                <h1
+                  style={{
+                    fontSize: 20,
+                    marginTop: 40,
+                    fontFamily: "Lovelo Black",
+                  }}
+                >
+                  Dane firmy
+                </h1>
                 <div style={{ marginTop: 80 }}>
-                  <ul>
-                    <li>ul. Wielki Rów 40B</li>
-                    <li>87-100 Toruń</li>
-                    <li>NIP: 879-118-34-25</li>
-                    <li>REGON: 871179250</li>
-                  </ul>
+                  <FooterList>
+                    <FooterListItem>ul. Wielki Rów 40B</FooterListItem>
+                    <FooterListItem>87-100 Toruń</FooterListItem>
+                    <FooterListItem>NIP: 879-118-34-25</FooterListItem>
+                    <FooterListItem>REGON: 871179250</FooterListItem>
+                  </FooterList>
                 </div>
                 <ButtonWrapper>Więcej informacji</ButtonWrapper>
               </div>
             </WrapperFooterContentItemFirst>
             <WrapperFooterContentItemSecond>
               <div>
-                <h1 style={{ fontSize: 20, marginTop: 40 }}>Kontakt</h1>
+                <h1
+                  style={{
+                    fontSize: 20,
+                    marginTop: 40,
+                    fontFamily: "Lovelo Black",
+                  }}
+                >
+                  Kontakt
+                </h1>
                 <div style={{ marginTop: 80 }}>
-                  <ul>
-                    <li>e-mail: biuro@extranet.pl</li>
-                  </ul>
-                  <p>Dział handlowy:</p>
-                  <ul>
-                    <li>tel.: +48 733 533 521</li>
-                  </ul>
-                  <p>Dział administracyjny:</p>
-                  <ul>
-                    <li> tel.: +48 695 423 695</li>
-                  </ul>
-                  <p> Godziny pracy:</p>
-                  <p>poniedziałek - piątek 8-16</p>
+                  <FooterList>
+                    <FooterListItem style={{fontSize: 18}}>e-mail: biuro@extranet.pl</FooterListItem>
+                  </FooterList>
+                  <h2
+                    style={{
+                      fontSize: 20,
+                      marginTop: 15,
+                    }}
+                  >
+                    Dział handlowy:
+                  </h2>
+                  <FooterList>
+                    <FooterListItem style={{fontSize: 18}}>tel.: +48 733 533 521</FooterListItem>
+                  </FooterList>
+                  <h2
+                    style={{
+                      fontSize: 20,
+                      marginTop: 15,
+                    }}
+                  >
+                    Dział administracyjny:
+                  </h2>
+                  <FooterList>
+                    <FooterListItem style={{fontSize: 18}}> tel.: +48 695 423 695</FooterListItem>
+                  </FooterList>
+                  <h2
+                    style={{
+                      fontSize: 20,
+                      marginTop: 15,
+                    }}
+                  >                   
+                    Godziny pracy:
+                  </h2>
+                  <p style={{fontSize: 18}}>poniedziałek - piątek 8-16</p>
                 </div>
                 <ButtonWrapper>Kariera</ButtonWrapper>
               </div>
             </WrapperFooterContentItemSecond>
             <WrapperFooterContentItemThird>
               <div>
-                <h1 style={{ fontSize: 20, marginTop: 40 }}>Napisz do nas</h1>
+                <h1
+                  style={{
+                    fontSize: 20,
+                    marginTop: 40,
+                    fontFamily: "Lovelo Black",
+                  }}
+                >
+                  Napisz do nas
+                </h1>
                 <div style={{ marginTop: 80 }}>
                   Temat wiadomości *
                   <p style={{ fontSize: 15 }}>
