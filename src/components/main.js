@@ -119,7 +119,6 @@ const ButtonWrapperContent = styled.button`
 const ProjectSection = styled.div`
   display: grid;
   grid-template-columns: 0.6fr 0.4fr;
-  grid-template-rows: 1fr;
   max-height: 800px;
   overflow: hidden;
   cursor: pointer;
@@ -143,15 +142,15 @@ const HeaderSectionProject = styled.div`
 `
 
 const HeaderSectionProjectRight = styled.div`
-  display: grid;
+  display: block;
   margin: 0 auto;
   margin-top: calc(50% - 150px);
   font-size: 25px;
   line-height: 23px;
   text-align: center;
   text-transform: uppercase;
-  height: 130px;
-  width: 200px;
+  height: 123px;
+  width: auto;
   color: #fff;
   padding-left: 5px;
   position: relative;
@@ -171,8 +170,8 @@ const BackgroudProjectLeft = styled.div`
   }
 `
 
-const ProjectSectionLeft = styled.button`
-  display: grid;
+const ProjectSectionLeft = styled.div`
+  display: inherit;
   position: relative;
   height: auto;
   transition: 0.3s ease-in;
@@ -181,7 +180,7 @@ const ProjectSectionLeft = styled.button`
     transition: 0.3s ease-in-out;
     content: "";
     width: 0;
-    left: 0%;
+    left: 0;
     bottom: 0;
     height: 4px;
     background: #c23b37;
@@ -197,20 +196,17 @@ const ProjectSectionLeft = styled.button`
     img {
       transform: rotate(0.1deg) scale(1.3);
     }
-  }
-  :focus {
-    border: 3px dotted #c23b37 !important;
+    :focus {
+      border: 3px dotted #c23b37 !important;
+    }
   }
 `
 
 const ProjectSectionRight = styled.div`
   display: grid;
-  grid-template-rows: 0.5fr 0.5fr;
-  position: relative;
-  overflow: hidden;
 `
 
-const BackgroudProjectTop = styled.button`
+const BackgroudProjectTop = styled.div`
   display: grid;
   position: absolute;
   width: 100%;
@@ -222,8 +218,9 @@ const BackgroudProjectTop = styled.button`
   }
 `
 
-const ProjectSectionRightTop = styled.button`
+const ProjectSectionRightTop = styled.div`
   display: grid;
+  position: relative;
   height: 100%;
   transition: 0.5s;
   ${HeaderSectionProjectRight}:after {
@@ -247,13 +244,13 @@ const ProjectSectionRightTop = styled.button`
     img {
       transform: rotate(0.1deg) scale(1.3);
     }
-  }
-  :focus {
-    border: 3px dotted #c23b37 !important;
+    :focus {
+      border: 3px dotted #c23b37 !important;
+    }
   }
 `
 
-const BackgroudProjectBottom = styled.button`
+const BackgroudProjectBottom = styled.div`
   display: grid;
   position: absolute;
   width: 100%;
@@ -265,8 +262,9 @@ const BackgroudProjectBottom = styled.button`
   }
 `
 
-const ProjectSectionRightBottom = styled.button`
+const ProjectSectionRightBottom = styled.div`
   display: grid;
+  position: relative;
   height: 100%;
   transition: 0.5s;
   ${HeaderSectionProjectRight}:after {
@@ -282,6 +280,9 @@ const ProjectSectionRightBottom = styled.button`
   :hover {
     ${BackgroudProjectBottom} {
       opacity: 1;
+      :focus {
+        border: 3px dotted #c23b37 !important;
+      }
     }
     ${HeaderSectionProjectRight}:after {
       width: 100%;
@@ -290,23 +291,19 @@ const ProjectSectionRightBottom = styled.button`
     img {
       transform: rotate(0.1deg) scale(1.3);
     }
-    :focus {
-      border: 3px dotted #c23b37 !important;
-    }
   }
 `
 const PhotoProject = styled(Image)`
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
+  width: 100%;
+  height: 100%;
+  display: grid;
   object-fit: cover;
-  position: absolute;
 `
 
 const PhotoProjectRight = styled(Image)`
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: grid;
 `
 
 /** Ofer Section **/
@@ -323,6 +320,8 @@ const OferContent = styled.div`
   flex-direction: column;
   justify-self: center;
   position: absolute;
+  margin-left: 10%;
+  margin-right: 10%;
   width: 80%;
   padding: 50px 0 185px 0;
   font-size: 20px;
