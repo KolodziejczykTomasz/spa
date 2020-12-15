@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 
 import styled from "styled-components"
@@ -9,18 +9,55 @@ const BackgroudDark = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  opacity: 1;
+  opacity: ${({nav})=> (nav ? 1 : 0)};`
+
+const MenuIcon = styled.button`
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+  div {
+    width: 1.5rem;
+    height: 0.2rem;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: 1px;
+    position: relative;
+    transition: opacity 300ms, transform 300ms;
+    :first-child {
+      transform: ${({ nav }) => (nav ? "rotate(45deg)" : "rotate(0)")};
+    }
+    :nth-child(2) {
+      opacity: ${({ nav }) => (nav ? 0 : 1)};
+    }
+    :nth-child(3) {
+      transform: ${({ nav }) => (nav ? "rotate(-45deg)" : "rotate(0)")};
+    }
+  }
+  @media (max-width: 1300px) {
+        opacity: 1;
+  }
 `
+
 const NavMain = styled.div`
   display: flex;
   margin: 0 auto;
   align-items: end;
   max-width: 1250px;
-  height: 90px;
+  height: 90px;  
 `
 
 const NavWrapper = styled.div`
-  display: flex;
+  display: flex;  
   position: absolute;
   position: fixed;
   top: 0;
@@ -32,14 +69,12 @@ const NavWrapper = styled.div`
   margin-bottom: 50px;
   background-color: transparent;
   z-index: 9999;
-  @media (max-width: 768px) {
-    background-color: #000;
-    color: #fff;
-    justify-content: flex-start;  
-    ${NavMain} {
-      flex-direction: column;
-      height: auto;     
-    }
+`
+
+const NavWrapperButton = styled.div`
+  opacity: 1;
+  @media (max-width: 1299px) {
+        opacity: ${({ nav }) => (nav ? 1 : 0)};
   }
 `
 
@@ -92,16 +127,17 @@ const LogoWrapper = styled(Link)`
   color: white;
 `
 
-class Navigation extends Component {
-  render() {
-    return (
-      <NavWrapper>
-        <BackgroudDark></BackgroudDark>
-        <NavMain>
-          <LogoWrapper to="/">
-            <div>extranet </div>
-            <div>internet creator</div>
-          </LogoWrapper>
+const Navigation = () => {
+  const [nav, showNav] = useState(false)
+  return (
+    <NavWrapper>
+      <BackgroudDark nav={nav} />
+      <NavMain>
+        <LogoWrapper to="/">
+          <div>extranet </div>
+          <div>internet creator</div>
+        </LogoWrapper>
+        <NavWrapperButton nav={nav}>
           <NavButton to="/">Firma</NavButton>
           <NavButton to="/">Blog</NavButton>
           <NavButton to="/">Usługi</NavButton>
@@ -109,10 +145,15 @@ class Navigation extends Component {
           <NavButton to="/">Portfolio</NavButton>
           <NavButton to="/">Wyszukiwanie</NavButton>
           <NavButton to="/">Logowanie</NavButton>
-        </NavMain>
-      </NavWrapper>
-    )
-  }
+        </NavWrapperButton>
+      </NavMain>
+      <MenuIcon nav={nav}  onClick={() => showNav(!nav)}>
+        <div />
+        <div />
+        <div />
+      </MenuIcon>
+    </NavWrapper>
+  )
 }
 
 export default Navigation
