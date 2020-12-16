@@ -83,6 +83,7 @@ const ButtonWrapper = styled.button`
   font-size: 15px;
   background: none;
   z-index: 1;
+  cursor: pointer;
   :after {
     content: "";
     position: absolute;
@@ -172,7 +173,9 @@ const Footer = () => (
                 </h1>
                 <div style={{ marginTop: 80 }}>
                   <FooterList>
-                    <FooterListItem style={{fontSize: 18}}>e-mail: biuro@extranet.pl</FooterListItem>
+                    <FooterListItem style={{ fontSize: 18 }}>
+                      e-mail: biuro@extranet.pl
+                    </FooterListItem>
                   </FooterList>
                   <h2
                     style={{
@@ -183,7 +186,9 @@ const Footer = () => (
                     Dział handlowy:
                   </h2>
                   <FooterList>
-                    <FooterListItem style={{fontSize: 18}}>tel.: +48 733 533 521</FooterListItem>
+                    <FooterListItem style={{ fontSize: 18 }}>
+                      tel.: +48 733 533 521
+                    </FooterListItem>
                   </FooterList>
                   <h2
                     style={{
@@ -194,17 +199,20 @@ const Footer = () => (
                     Dział administracyjny:
                   </h2>
                   <FooterList>
-                    <FooterListItem style={{fontSize: 18}}> tel.: +48 695 423 695</FooterListItem>
+                    <FooterListItem style={{ fontSize: 18 }}>
+                      {" "}
+                      tel.: +48 695 423 695
+                    </FooterListItem>
                   </FooterList>
                   <h2
                     style={{
                       fontSize: 20,
                       marginTop: 15,
                     }}
-                  >                   
+                  >
                     Godziny pracy:
                   </h2>
-                  <p style={{fontSize: 18}}>poniedziałek - piątek 8-16</p>
+                  <p style={{ fontSize: 18 }}>poniedziałek - piątek 8-16</p>
                 </div>
                 <ButtonWrapper>Kariera</ButtonWrapper>
               </div>

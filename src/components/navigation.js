@@ -6,10 +6,14 @@ import styled from "styled-components"
 const BackgroudDark = styled.div`
   display: grid;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: ${({nav})=> (nav ? 1 : 0)};`
+  min-width: 360px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: ${({ nav }) => (nav ? 1 : 0)};
+  @media (min-width: 1299px) {
+        opacity: 0;
+  }
+`
 
 const MenuIcon = styled.button`
   position: fixed;
@@ -50,20 +54,26 @@ const MenuIcon = styled.button`
 
 const NavMain = styled.div`
   display: flex;
+  flex-direction: ${({ nav }) => (nav ? "column" : "row")};
+  align-items: ${({ nav }) => (nav ? "start" : "end")};
+  position: ${({ nav }) => (nav ? "absolute" : "static")};
   margin: 0 auto;
-  align-items: end;
   max-width: 1250px;
-  height: 90px;  
+  height: 90px;
+  @media (min-width: 1299px) {
+       display: flex;
+    flex-direction: row;
+  }
 `
 
 const NavWrapper = styled.div`
-  display: flex;  
+  display: flex;
   position: absolute;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 109px;
+  min-height: 120px;
   max-width: 1920px;
   border-bottom: 2px solid #f7f7f7;
   margin-bottom: 50px;
@@ -72,9 +82,16 @@ const NavWrapper = styled.div`
 `
 
 const NavWrapperButton = styled.div`
+  display: flex;
+  flex-direction: ${({ nav }) => (nav ? "column" : "row")};
   opacity: 1;
   @media (max-width: 1299px) {
         opacity: ${({ nav }) => (nav ? 1 : 0)};
+    flex-direction: column;
+  }
+  @media (min-width: 1299px) {
+       display: flex;
+    flex-direction: row;
   }
 `
 
@@ -132,7 +149,7 @@ const Navigation = () => {
   return (
     <NavWrapper>
       <BackgroudDark nav={nav} />
-      <NavMain>
+      <NavMain nav={nav}>
         <LogoWrapper to="/">
           <div>extranet </div>
           <div>internet creator</div>
@@ -147,7 +164,7 @@ const Navigation = () => {
           <NavButton to="/">Logowanie</NavButton>
         </NavWrapperButton>
       </NavMain>
-      <MenuIcon nav={nav}  onClick={() => showNav(!nav)}>
+      <MenuIcon nav={nav} onClick={() => showNav(!nav)}>
         <div />
         <div />
         <div />
