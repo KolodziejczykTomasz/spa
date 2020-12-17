@@ -118,7 +118,6 @@ const ButtonWrapperContent = styled.button`
 const ProjectSection = styled.div`
   display: grid;
   grid-template-columns: 0.6fr 0.4fr;
-  max-height: 800px;
   overflow: hidden;
   cursor: pointer;
 `
