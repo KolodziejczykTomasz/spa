@@ -57,12 +57,11 @@ const NavMain = styled.div`
   flex-direction: ${({ nav }) => (nav ? "column" : "row")};
   align-items: ${({ nav }) => (nav ? "start" : "end")};
   position: ${({ nav }) => (nav ? "absolute" : "static")};
-  margin: 0 auto;
+  margin: ${({ nav }) => (nav ? "0 auto" : "0 0")};
   max-width: 1250px;
-  height: 90px;
+  height: 90px; 
   @media (min-width: 1299px) {
-       display: flex;
-    flex-direction: row;
+     margin: 0 auto;
   }
 `
 
