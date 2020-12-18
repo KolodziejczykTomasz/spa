@@ -25,7 +25,7 @@ const MenuIcon = styled.button`
   width: 1.5rem;
   height: 1.5rem;
   background: transparent;
-  border: none;
+  border: none !important;
   cursor: pointer;
   z-index: 5;
   opacity: 0;
@@ -46,7 +46,7 @@ const MenuIcon = styled.button`
     :nth-child(3) {
       transform: ${({ nav }) => (nav ? "rotate(-45deg)" : "rotate(0)")};
     }
-  }
+  } 
   @media (max-width: 1300px) {
         opacity: 1;
   }
@@ -59,9 +59,10 @@ const NavMain = styled.div`
   position: ${({ nav }) => (nav ? "absolute" : "static")};
   margin: ${({ nav }) => (nav ? "0 auto" : "0 0")};
   max-width: 1250px;
-  height: 90px; 
-  @media (min-width: 1299px) {
-     margin: 0 auto;
+  height: 90px;
+  @media (min-width: 1299px) {    
+    flex-direction: row;  
+    
   }
 `
 
@@ -78,6 +79,10 @@ const NavWrapper = styled.div`
   margin-bottom: 50px;
   background-color: transparent;
   z-index: 9999;
+  @media (min-width: 1299px) {
+       justify-content: center;
+  }
+  
 `
 
 const NavWrapperButton = styled.div`
@@ -91,6 +96,7 @@ const NavWrapperButton = styled.div`
   @media (min-width: 1299px) {
        display: flex;
     flex-direction: row;
+    
   }
 `
 
@@ -141,6 +147,10 @@ const LogoWrapper = styled(Link)`
   text-decoration: none;
   font-size: 25px;
   color: white;
+  opacity: 1;
+  @media (max-width: 762px) {
+        opacity: 0;    
+  }
 `
 
 const Navigation = () => {

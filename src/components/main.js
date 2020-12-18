@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Image from "../components/image"
 import styled from "styled-components"
+import "aos/dist/aos.css"
 
 const MainWrapper = styled.div`
   display: grid;
@@ -387,6 +388,11 @@ const PortfolioSectionContent = styled.div`
   padding: 0 0 15px 0;
   overflow: hidden;
   cursor: pointer;
+  @media (max-width: 1100px) {
+        justify-content: center;
+    flex-direction: column;
+    height: auto;
+  }
 `
 
 const PortfolioSectionContentWrapper = styled.button`
@@ -472,115 +478,151 @@ const PortfolioSectionContentItem = styled.div`
       transform: scale(1.3);
     }
   }
+  @media (max-width: 1100px) {
+        width: 100%;
+  }
 `
 
-const Main = () => (
-  <MainWrapper>
-    <MainWrapperSection>
-      <MainWrapperSectionContent>
-        <Header>Filozofia firmy</Header>
-        <MainWrapperSectionContentText>
-          Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
-          systemy CMS (Content Management System - system zarządzania treścią).
-          Wdrożenia są utrzymywane na własnej infrastrukturze serwerowej co wraz
-          utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
-          rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
-        </MainWrapperSectionContentText>
-        <ButtonWrapperContent>dowiedz się więcej</ButtonWrapperContent>
-      </MainWrapperSectionContent>
-    </MainWrapperSection>
-    <ProjectSection>
-      <ProjectSectionLeft>
-        <PhotoProject imgsrc="project1.jpg" />
-        <ProjectSectionContentWrapper>
-          <BackgroudProjectLeft>
-            <HeaderSectionProject>
-              <h1>usługi</h1>Urząd Gminy 1
-            </HeaderSectionProject>
-          </BackgroudProjectLeft>
-        </ProjectSectionContentWrapper>
-      </ProjectSectionLeft>
-      <ProjectSectionRight>
-        <ProjectSectionRightTop>
-          <PhotoProjectRight imgsrc="project2.jpg" />
+const Main = () => {
+let AOS;
+  useEffect(() => {   
+    const AOS = require("aos");
+    AOS.init({
+      once: true,
+    });
+  }, []);
+
+  useEffect(() => {
+    if (AOS) {
+      AOS.refresh();
+    }
+  });
+
+  return (
+    <MainWrapper>
+      <MainWrapperSection>
+        <MainWrapperSectionContent
+          data-aos="fade-up"
+          data-aos-delay="5"
+          data-aos-duration="1000"
+        >
+          <Header>Filozofia firmy</Header>
+          <MainWrapperSectionContentText>
+            Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
+            systemy CMS (Content Management System - system zarządzania
+            treścią). Wdrożenia są utrzymywane na własnej infrastrukturze
+            serwerowej co wraz utrzymywaniem poczty elektronicznej czy
+            opracowywaniu i wdrażaniu rozwiązań dedykowanych stanowi kompleksową
+            obsługę klienta.
+          </MainWrapperSectionContentText>
+          <ButtonWrapperContent>dowiedz się więcej</ButtonWrapperContent>
+        </MainWrapperSectionContent>
+      </MainWrapperSection>
+      <ProjectSection
+        data-aos="fade-up"
+        data-aos-delay="5"
+        data-aos-duration="1000"
+      >
+        <ProjectSectionLeft>
+          <PhotoProject imgsrc="project1.jpg" />
           <ProjectSectionContentWrapper>
-            <BackgroudProjectTop>
-              <HeaderSectionProjectRight>
-                <h1>usługi</h1>Urząd Gminy 2
-              </HeaderSectionProjectRight>
-            </BackgroudProjectTop>
+            <BackgroudProjectLeft>
+              <HeaderSectionProject>
+                <h1>usługi</h1>Urząd Gminy 1
+              </HeaderSectionProject>
+            </BackgroudProjectLeft>
           </ProjectSectionContentWrapper>
-        </ProjectSectionRightTop>
-        <ProjectSectionRightBottom>
-          <PhotoProjectRight imgsrc="project3.jpg" />
-          <ProjectSectionContentWrapper>
-            <BackgroudProjectBottom>
-              <HeaderSectionProjectRight>
-                <h1>usługi</h1>Urząd Gminy 3
-              </HeaderSectionProjectRight>
-            </BackgroudProjectBottom>
-          </ProjectSectionContentWrapper>
-        </ProjectSectionRightBottom>
-      </ProjectSectionRight>
-    </ProjectSection>
-    <OferSection>
-      <PhotoOfert imgsrc="bg_ofert.jpg" />
-      <OferContent>
-        <Header>Nasza oferta</Header>
-        <div style={{ lineHeight: 1.6 }}>
-          Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
-          systemy CMS (Content Management System - system zarządzania treścią).
-          Wdrożenia są utrzymywane na własnej infrastrukturze serwerowej co wraz
-          utrzymywaniem poczty elektronicznej czy opracowywaniu i wdrażaniu
-          rozwiązań dedykowanych stanowi kompleksową obsługę klienta.
-        </div>
-        <ButtonWrapper>Zobacz więcej</ButtonWrapper>
-      </OferContent>
-    </OferSection>
-    <PortfolioSection>
-      <PortfolioSectionContent>
-        <PortfolioSectionContentItem>
-          <PhotoPortfolio imgsrc="ofert1.jpg" />
-          <PortfolioSectionContentWrapper>
-            <PortfolioSectionContentItemHeader>
-              Strony internetowe
-            </PortfolioSectionContentItemHeader>
-            <BackgroudPortfolio>
-              <PortfolioSectionContentItemFooter>
-                Dowiedz się więcej
-              </PortfolioSectionContentItemFooter>
-            </BackgroudPortfolio>
-          </PortfolioSectionContentWrapper>
-        </PortfolioSectionContentItem>
-        <PortfolioSectionContentItem>
-          <PhotoPortfolio imgsrc="ofert2.jpg" />
-          <PortfolioSectionContentWrapper>
-            <PortfolioSectionContentItemHeader>
-              Poczta elektroniczna
-            </PortfolioSectionContentItemHeader>
-            <BackgroudPortfolio>
-              <PortfolioSectionContentItemFooter>
-                Dowiedz się więcej
-              </PortfolioSectionContentItemFooter>
-            </BackgroudPortfolio>
-          </PortfolioSectionContentWrapper>
-        </PortfolioSectionContentItem>
-        <PortfolioSectionContentItem>
-          <PhotoPortfolio imgsrc="ofert3.jpg" />
-          <PortfolioSectionContentWrapper>
-            <PortfolioSectionContentItemHeader>
-              Rozwiązania dedykowane
-            </PortfolioSectionContentItemHeader>
-            <BackgroudPortfolio>
-              <PortfolioSectionContentItemFooter>
-                Dowiedz się więcej
-              </PortfolioSectionContentItemFooter>
-            </BackgroudPortfolio>
-          </PortfolioSectionContentWrapper>
-        </PortfolioSectionContentItem>
-      </PortfolioSectionContent>
-    </PortfolioSection>
-  </MainWrapper>
-)
+        </ProjectSectionLeft>
+        <ProjectSectionRight>
+          <ProjectSectionRightTop>
+            <PhotoProjectRight imgsrc="project2.jpg" />
+            <ProjectSectionContentWrapper>
+              <BackgroudProjectTop>
+                <HeaderSectionProjectRight>
+                  <h1>usługi</h1>Urząd Gminy 2
+                </HeaderSectionProjectRight>
+              </BackgroudProjectTop>
+            </ProjectSectionContentWrapper>
+          </ProjectSectionRightTop>
+          <ProjectSectionRightBottom>
+            <PhotoProjectRight imgsrc="project3.jpg" />
+            <ProjectSectionContentWrapper>
+              <BackgroudProjectBottom>
+                <HeaderSectionProjectRight>
+                  <h1>usługi</h1>Urząd Gminy 3
+                </HeaderSectionProjectRight>
+              </BackgroudProjectBottom>
+            </ProjectSectionContentWrapper>
+          </ProjectSectionRightBottom>
+        </ProjectSectionRight>
+      </ProjectSection>
+      <OferSection>
+        <PhotoOfert imgsrc="bg_ofert.jpg" />
+        <OferContent
+          data-aos="fade-up"
+          data-aos-delay="5"
+          data-aos-duration="1000"
+        >
+          <Header>Nasza oferta</Header>
+          <div style={{ lineHeight: 1.6 }}>
+            Nasza firma specjalizuje się w tworzeniu stron i serwisów opartych o
+            systemy CMS (Content Management System - system zarządzania
+            treścią). Wdrożenia są utrzymywane na własnej infrastrukturze
+            serwerowej co wraz utrzymywaniem poczty elektronicznej czy
+            opracowywaniu i wdrażaniu rozwiązań dedykowanych stanowi kompleksową
+            obsługę klienta.
+          </div>
+          <ButtonWrapper>Zobacz więcej</ButtonWrapper>
+        </OferContent>
+      </OferSection>
+      <PortfolioSection>
+        <PortfolioSectionContent
+          data-aos="fade-up"
+          data-aos-delay="5"
+          data-aos-duration="1000"
+        >
+          <PortfolioSectionContentItem>
+            <PhotoPortfolio imgsrc="ofert1.jpg" />
+            <PortfolioSectionContentWrapper>
+              <PortfolioSectionContentItemHeader>
+                Strony internetowe
+              </PortfolioSectionContentItemHeader>
+              <BackgroudPortfolio>
+                <PortfolioSectionContentItemFooter>
+                  Dowiedz się więcej
+                </PortfolioSectionContentItemFooter>
+              </BackgroudPortfolio>
+            </PortfolioSectionContentWrapper>
+          </PortfolioSectionContentItem>
+          <PortfolioSectionContentItem>
+            <PhotoPortfolio imgsrc="ofert2.jpg" />
+            <PortfolioSectionContentWrapper>
+              <PortfolioSectionContentItemHeader>
+                Poczta elektroniczna
+              </PortfolioSectionContentItemHeader>
+              <BackgroudPortfolio>
+                <PortfolioSectionContentItemFooter>
+                  Dowiedz się więcej
+                </PortfolioSectionContentItemFooter>
+              </BackgroudPortfolio>
+            </PortfolioSectionContentWrapper>
+          </PortfolioSectionContentItem>
+          <PortfolioSectionContentItem>
+            <PhotoPortfolio imgsrc="ofert3.jpg" />
+            <PortfolioSectionContentWrapper>
+              <PortfolioSectionContentItemHeader>
+                Rozwiązania dedykowane
+              </PortfolioSectionContentItemHeader>
+              <BackgroudPortfolio>
+                <PortfolioSectionContentItemFooter>
+                  Dowiedz się więcej
+                </PortfolioSectionContentItemFooter>
+              </BackgroudPortfolio>
+            </PortfolioSectionContentWrapper>
+          </PortfolioSectionContentItem>
+        </PortfolioSectionContent>
+      </PortfolioSection>
+    </MainWrapper>
+  )}
 
 export default Main

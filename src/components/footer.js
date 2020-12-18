@@ -199,8 +199,7 @@ const Footer = () => (
                     Dział administracyjny:
                   </h2>
                   <FooterList>
-                    <FooterListItem style={{ fontSize: 18 }}>
-                      {" "}
+                    <FooterListItem style={{ fontSize: 18 }}>                      
                       tel.: +48 695 423 695
                     </FooterListItem>
                   </FooterList>
