@@ -156,16 +156,17 @@ const LogoWrapper = styled(Link)`
 const Navigation = () => {
   const [nav, showNav] = useState(false)
   const [navbar, setNavbar] = useState(false)
+const windowGlobal = typeof window !== "undefined" && window
 
   const changeBackground = () => {
-    if (window.scrollY >= 110) {
+    if (windowGlobal.scrollY >= 110) {
       setNavbar(true)
     } else {
       setNavbar(false)
     }
   }
 
-  window.addEventListener("scroll", changeBackground)
+  windowGlobal.addEventListener("scroll", changeBackground)
   return (
     <NavWrapper navbar={navbar}>
       <BackgroudDark nav={nav} />
