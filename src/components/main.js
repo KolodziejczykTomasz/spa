@@ -594,6 +594,7 @@ let AOS;
               </BackgroudPortfolio>
             </PortfolioSectionContentWrapper>
           </PortfolioSectionContentItem>
+
           <PortfolioSectionContentItem>
             <PhotoPortfolio imgsrc="ofert2.jpg" />
             <PortfolioSectionContentWrapper>
@@ -607,6 +608,7 @@ let AOS;
               </BackgroudPortfolio>
             </PortfolioSectionContentWrapper>
           </PortfolioSectionContentItem>
+          
           <PortfolioSectionContentItem>
             <PhotoPortfolio imgsrc="ofert3.jpg" />
             <PortfolioSectionContentWrapper>

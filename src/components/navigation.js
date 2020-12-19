@@ -46,7 +46,7 @@ const MenuIcon = styled.button`
     :nth-child(3) {
       transform: ${({ nav }) => (nav ? "rotate(-45deg)" : "rotate(0)")};
     }
-  } 
+  }
   @media (max-width: 1300px) {
         opacity: 1;
   }
@@ -60,9 +60,8 @@ const NavMain = styled.div`
   margin: ${({ nav }) => (nav ? "0 auto" : "0 0")};
   max-width: 1250px;
   height: 90px;
-  @media (min-width: 1299px) {    
-    flex-direction: row;  
-    
+  @media (min-width: 1299px) {
+    flex-direction: row;
   }
 `
 
@@ -73,16 +72,18 @@ const NavWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 120px;
+  min-height: 110px;
+  height: ${({ navbar }) => (navbar ? '110px' : '140px')};
   max-width: 1920px;
   border-bottom: 2px solid #f7f7f7;
   margin-bottom: 50px;
-  background-color: transparent;
+  transition: 400ms;
   z-index: 9999;
   @media (min-width: 1299px) {
        justify-content: center;
+    background-color: ${({ navbar }) =>
+      navbar ? "rgba(0, 0, 0, 0.8)" : "transparent"};
   }
-  
 `
 
 const NavWrapperButton = styled.div`
@@ -96,14 +97,13 @@ const NavWrapperButton = styled.div`
   @media (min-width: 1299px) {
        display: flex;
     flex-direction: row;
-    
   }
 `
 
 const NavButton = styled(Link)`
   padding: 30px 30px 25px 30px;
   color: white;
-  font-size: 15px;
+  font-size: ${({ navbar }) => (navbar ? "15px" : "18px")};
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
@@ -138,25 +138,36 @@ const NavButton = styled(Link)`
 const LogoWrapper = styled(Link)`
   display: flex;
   width: 360px;
-  height: 98%;
+  height: ${({ navbar }) => (navbar ? "98%" : "90%")};
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 3px dotted #f7f7f7;
   border-radius: 10px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: ${({ navbar }) => (navbar ? "25px" : "20px")};
   color: white;
   opacity: 1;
   @media (max-width: 762px) {
-        opacity: 0;    
+        opacity: 0;
   }
 `
 
 const Navigation = () => {
   const [nav, showNav] = useState(false)
+  const [navbar, setNavbar] = useState(false)
+
+  const changeBackground = () => {
+    if (window.scrollY >= 110) {
+      setNavbar(true)
+    } else {
+      setNavbar(false)
+    }
+  }
+
+  window.addEventListener("scroll", changeBackground)
   return (
-    <NavWrapper>
+    <NavWrapper navbar={navbar}>
       <BackgroudDark nav={nav} />
       <NavMain nav={nav}>
         <LogoWrapper to="/">
@@ -164,13 +175,27 @@ const Navigation = () => {
           <div>internet creator</div>
         </LogoWrapper>
         <NavWrapperButton nav={nav}>
-          <NavButton to="/">Firma</NavButton>
-          <NavButton to="/">Blog</NavButton>
-          <NavButton to="/">Usługi</NavButton>
-          <NavButton to="/">Kontakt</NavButton>
-          <NavButton to="/">Portfolio</NavButton>
-          <NavButton to="/">Wyszukiwanie</NavButton>
-          <NavButton to="/">Logowanie</NavButton>
+          <NavButton to="/" navbar={navbar}>
+            Firma
+          </NavButton>
+          <NavButton to="/" navbar={navbar}>
+            Blog
+          </NavButton>
+          <NavButton to="/" navbar={navbar}>
+            Usługi
+          </NavButton>
+          <NavButton to="/" navbar={navbar}>
+            Kontakt
+          </NavButton>
+          <NavButton to="/" navbar={navbar}>
+            Portfolio
+          </NavButton>
+          <NavButton to="/" navbar={navbar}>
+            Wyszukiwanie
+          </NavButton>
+          <NavButton to="/" navbar={navbar}>
+            Logowanie
+          </NavButton>
         </NavWrapperButton>
       </NavMain>
       <MenuIcon nav={nav} onClick={() => showNav(!nav)}>
