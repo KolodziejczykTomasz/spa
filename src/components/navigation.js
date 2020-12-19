@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 
 import styled from "styled-components"
@@ -73,7 +73,7 @@ const NavWrapper = styled.div`
   left: 0;
   width: 100%;
   min-height: 110px;
-  height: ${({ navbar }) => (navbar ? '110px' : '140px')};
+  height: ${({ scrolled }) => (scrolled ? "110px" : "140px")};
   max-width: 1920px;
   border-bottom: 2px solid #f7f7f7;
   margin-bottom: 50px;
@@ -81,8 +81,8 @@ const NavWrapper = styled.div`
   z-index: 9999;
   @media (min-width: 1299px) {
        justify-content: center;
-    background-color: ${({ navbar }) =>
-      navbar ? "rgba(0, 0, 0, 0.8)" : "transparent"};
+    background-color: ${({ scrolled }) =>
+      scrolled ? "rgba(0, 0, 0, 0.8)" : "transparent"};
   }
 `
 
@@ -103,7 +103,7 @@ const NavWrapperButton = styled.div`
 const NavButton = styled(Link)`
   padding: 30px 30px 25px 30px;
   color: white;
-  font-size: ${({ navbar }) => (navbar ? "15px" : "18px")};
+  font-size: ${({ scrolled }) => (scrolled ? "15px" : "18px")};
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
@@ -138,14 +138,14 @@ const NavButton = styled(Link)`
 const LogoWrapper = styled(Link)`
   display: flex;
   width: 360px;
-  height: ${({ navbar }) => (navbar ? "98%" : "90%")};
+  height: ${({ scrolled }) => (scrolled ? "98%" : "90%")};
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 3px dotted #f7f7f7;
   border-radius: 10px;
   text-decoration: none;
-  font-size: ${({ navbar }) => (navbar ? "25px" : "20px")};
+  font-size: ${({ scrolled }) => (scrolled ? "25px" : "20px")};
   color: white;
   opacity: 1;
   @media (max-width: 762px) {
@@ -155,20 +155,25 @@ const LogoWrapper = styled(Link)`
 
 const Navigation = () => {
   const [nav, showNav] = useState(false)
-  const [navbar, setNavbar] = useState(false)
-const windowGlobal = typeof window !== "undefined" && window
+   const [scrolled, setScrolled] = useState(false)
 
-  const changeBackground = () => {
-    if (windowGlobal.scrollY >= 110) {
-      setNavbar(true)
-    } else {
-      setNavbar(false)
-    }
-  }
 
-  windowGlobal.addEventListener("scroll", changeBackground)
+ useEffect(() => {
+   const handleScroll = () => {
+     const isScrolled = window.scrollY > 10
+     if (isScrolled !== scrolled) {
+       setScrolled(!scrolled)
+     }
+   }
+
+   document.addEventListener("scroll", handleScroll, { passive: true })
+
+   return () => {
+     document.removeEventListener("scroll", handleScroll)
+   }
+ }, [scrolled])
   return (
-    <NavWrapper navbar={navbar}>
+    <NavWrapper scrolled={scrolled}>
       <BackgroudDark nav={nav} />
       <NavMain nav={nav}>
         <LogoWrapper to="/">
@@ -176,25 +181,25 @@ const windowGlobal = typeof window !== "undefined" && window
           <div>internet creator</div>
         </LogoWrapper>
         <NavWrapperButton nav={nav}>
-          <NavButton to="/" navbar={navbar}>
+          <NavButton to="/" scrolled={scrolled}>
             Firma
           </NavButton>
-          <NavButton to="/" navbar={navbar}>
+          <NavButton to="/" scrolled={scrolled}>
             Blog
           </NavButton>
-          <NavButton to="/" navbar={navbar}>
+          <NavButton to="/" scrolled={scrolled}>
             Usługi
           </NavButton>
-          <NavButton to="/" navbar={navbar}>
+          <NavButton to="/" scrolled={scrolled}>
             Kontakt
           </NavButton>
-          <NavButton to="/" navbar={navbar}>
+          <NavButton to="/" scrolled={scrolled}>
             Portfolio
           </NavButton>
-          <NavButton to="/" navbar={navbar}>
+          <NavButton to="/" scrolled={scrolled}>
             Wyszukiwanie
           </NavButton>
-          <NavButton to="/" navbar={navbar}>
+          <NavButton to="/" scrolled={scrolled}>
             Logowanie
           </NavButton>
         </NavWrapperButton>
